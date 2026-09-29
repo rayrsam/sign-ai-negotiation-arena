@@ -1,35 +1,44 @@
 import type { ReactNode } from "react";
+import { type AppSectionId, appSections, sectionAction } from "@/lib/app-sections";
 import { navigate } from "@/table/lib/router";
 
-const railSpots = [
-  { label: "Главная", top: 271 },
-  { label: "Обучение", top: 353, href: "?screen=lessons" },
-  { label: "Тренировки", top: 435, go: "settings" as const },
-  { label: "Прогресс", top: 517 },
-  { label: "Свободные переговоры", top: 599 },
-  { label: "Достижения", top: 681 },
+/** Positions of the section icons in rail-training.svg (the order of appSections). */
+const sectionTops: Record<AppSectionId, number> = {
+  overview: 271,
+  learning: 353,
+  training: 435,
+  free: 517,
+  progress: 599,
+  achievements: 681,
+};
+
+const accountSpots = [
   { label: "Профиль", top: 922 },
   { label: "Настройки", top: 988 },
 ];
 
+const current: AppSectionId = "training";
+
 /** Application rail from the mockups; the highlighted item is baked into the asset. */
 export function AppRail() {
-  const current = "Тренировки";
   return (
     <nav className="app-rail" aria-label="Разделы приложения">
       <img className="asset app-rail-art" src="/assets/rail-training.svg" alt="" width="92" height="990" draggable={false} />
       <button type="button" className="app-rail-logo" aria-label="Тренировки" title="Тренировки" onClick={() => navigate("settings")} />
-      {railSpots.map((spot) => (
+      {appSections.map((section) => (
         <button
-          key={spot.label}
+          key={section.id}
           type="button"
           className="app-rail-spot"
-          style={{ top: spot.top }}
-          title={spot.label}
-          aria-label={spot.label}
-          aria-current={spot.label === current ? "page" : undefined}
-          onClick={spot.go ? () => navigate(spot.go) : spot.href ? () => window.location.assign(spot.href) : undefined}
+          style={{ top: sectionTops[section.id] }}
+          title={section.label}
+          aria-label={section.label}
+          aria-current={section.id === current ? "page" : undefined}
+          onClick={sectionAction(section, current, () => navigate("settings"))}
         />
+      ))}
+      {accountSpots.map((spot) => (
+        <button key={spot.label} type="button" className="app-rail-spot" style={{ top: spot.top }} title={spot.label} aria-label={spot.label} />
       ))}
     </nav>
   );

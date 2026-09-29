@@ -6,8 +6,8 @@ export function installTruncationTitles() {
   document.addEventListener("mouseover", (event) => {
     const target = event.target;
     if (!(target instanceof HTMLElement) || target.hasAttribute("title")) return;
-    // The table mini-game scrolls its own stage and does not use clamped texts.
-    if (document.documentElement.classList.contains("table-module")) return;
+    // The table and the free negotiations scroll their own stage and do not use clamped texts.
+    if (document.documentElement.matches(".table-module, .free-module")) return;
     const cut = target.scrollHeight > target.clientHeight + 1 || target.scrollWidth > target.clientWidth + 1;
     const text = target.textContent?.trim();
     if (cut && text && !target.matches("textarea, input, [role='log'], .conversation-list, .current-reply, .brief-details, .report-page")) {

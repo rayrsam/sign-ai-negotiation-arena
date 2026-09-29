@@ -3,16 +3,21 @@ import { notifySearch } from "@/lib/search";
 
 export { currentParams, useSearch } from "@/lib/search";
 
-export type ScreenId = "settings" | "howto" | "table" | "result" | "report" | "full-report" | "history";
+export type ScreenId =
+  | "setup" | "counterparty" | "details" | "exact" | "random" | "random-result" | "seed"
+  | "brief" | "meeting" | "report" | "full-report" | "replay";
 
-const screenIds: ScreenId[] = ["settings", "howto", "table", "result", "report", "full-report", "history"];
+const screenIds: ScreenId[] = [
+  "setup", "counterparty", "details", "exact", "random", "random-result", "seed",
+  "brief", "meeting", "report", "full-report", "replay",
+];
 
-/** Table screens share the app-wide `?screen=` parameter with the lessons under the `table-` prefix. */
+/** Free negotiation screens share the app-wide `?screen=` parameter under the `free-` prefix. */
 function screenParam(screen: ScreenId) {
-  return screen === "table" ? "table" : `table-${screen}`;
+  return `free-${screen}`;
 }
 
-export function tableScreenOf(param: string | null): ScreenId | undefined {
+export function freeScreenOf(param: string | null): ScreenId | undefined {
   return screenIds.find((screen) => screenParam(screen) === param);
 }
 
@@ -27,7 +32,13 @@ export function navigate(screen: ScreenId, params: Record<string, string | undef
   notifySearch();
 }
 
-export function Redirect({ to, params }: { to: ScreenId; params?: Record<string, string | undefined> }) {
-  useEffect(() => navigate(to, params, true), [to, params]);
+export function goBack(fallback: ScreenId) {
+  if (window.history.length > 1) window.history.back();
+  else navigate(fallback);
+}
+
+
+export function Redirect({ to }: { to: ScreenId }) {
+  useEffect(() => navigate(to, {}, true), [to]);
   return null;
 }

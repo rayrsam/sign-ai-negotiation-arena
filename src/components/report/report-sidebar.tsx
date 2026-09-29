@@ -1,13 +1,16 @@
 import { BrandLogo } from "@/components/brand-logo";
+import { type AppSectionId, appSections, sectionAction } from "@/lib/app-sections";
 
-const sections: Array<{ label: string; image: string; activeImage?: string; active?: boolean; href?: string }> = [
-  { label: "Обзор", image: "home" },
-  { label: "Обучение", image: "learning", activeImage: "learning-active", active: true },
-  { label: "Тренировки", image: "training", href: "?screen=table-settings" },
-  { label: "Практика", image: "negotiations" },
-  { label: "Прогресс", image: "skills" },
-  { label: "Достижения", image: "history" },
-];
+const icons: Record<AppSectionId, { image: string; activeImage?: string }> = {
+  overview: { image: "home" },
+  learning: { image: "learning", activeImage: "learning-active" },
+  training: { image: "training" },
+  free: { image: "negotiations" },
+  progress: { image: "skills" },
+  achievements: { image: "history" },
+};
+
+const current: AppSectionId = "learning";
 
 export function ReportSidebar() {
   return (
@@ -16,19 +19,23 @@ export function ReportSidebar() {
         <BrandLogo />
       </a>
       <nav className="report-sidebar-nav" aria-label="Разделы">
-        {sections.map(({ label, image, activeImage, active, href }) => (
-          <button
-            className={`report-sidebar-icon${active ? " is-active" : ""}`}
-            type="button"
-            title={label}
-            aria-label={label}
-            aria-current={active ? "page" : undefined}
-            onClick={href ? () => window.location.assign(href) : undefined}
-            key={label}
-          >
-            <img src={`/icons/${active && activeImage ? activeImage : image}.svg`} alt="" draggable="false" />
-          </button>
-        ))}
+        {appSections.map((section) => {
+          const active = section.id === current;
+          const { image, activeImage } = icons[section.id];
+          return (
+            <button
+              className={`report-sidebar-icon${active ? " is-active" : ""}`}
+              type="button"
+              title={section.label}
+              aria-label={section.label}
+              aria-current={active ? "page" : undefined}
+              onClick={sectionAction(section, current, () => window.location.assign("?screen=lessons"))}
+              key={section.id}
+            >
+              <img src={`/icons/${active && activeImage ? activeImage : image}.svg`} alt="" draggable="false" />
+            </button>
+          );
+        })}
       </nav>
       <div className="report-sidebar-bottom" aria-label="Профиль и настройки">
         <button className="report-sidebar-account" type="button" title="Профиль" aria-label="Профиль">

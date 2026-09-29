@@ -54,6 +54,8 @@ export function SettingsScreen() {
   const rules = difficultyRules[settings.difficulty];
   const format = formats.find((item) => item.id === settings.format)!;
   const available = settings.format === "table";
+  // «Переговоры с AI» are assembled in the free negotiations section.
+  const freeTalk = settings.format === "ai";
 
   useEffect(() => writeSettingsDraft(settings), [settings]);
 
@@ -63,6 +65,10 @@ export function SettingsScreen() {
   };
 
   async function build() {
+    if (freeTalk) {
+      window.location.assign("?screen=free-setup");
+      return;
+    }
     if (!available || busy) return;
     setBusy(true);
     setError(null);
@@ -149,7 +155,7 @@ export function SettingsScreen() {
         </section>
 
         {error && <p className="st-error" role="alert">{error}</p>}
-        <CtaButton className="st-build" variant="orange" box={{ left: 1305.3, top: 963, width: 524.7, height: 60 }} fontSize={24} onClick={() => void build()} disabled={!available || busy}>
+        <CtaButton className="st-build" variant="orange" box={{ left: 1305.3, top: 963, width: 524.7, height: 60 }} fontSize={24} onClick={() => void build()} disabled={!(available || freeTalk) || busy}>
           {busy ? "Собираем стол…" : "Собрать тренировку"}
         </CtaButton>
       </AppLayout>

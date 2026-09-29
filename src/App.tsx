@@ -8,15 +8,20 @@ import { ReplayScreen } from "@/screens/replay-screen";
 import { TheoryScreen } from "@/screens/theory-screen";
 import { LessonOutcomeScreen } from "@/screens/lesson-outcome-screen";
 import { TableApp } from "@/table/table-app";
-import { tableScreenOf, useSearch } from "@/table/lib/router";
+import { tableScreenOf } from "@/table/lib/router";
+import { FreeApp } from "@/free/free-app";
+import { freeScreenOf } from "@/free/lib/router";
+import { useSearch } from "@/lib/search";
 import "@/report.css";
 
 export default function App() {
-  // The table mini-game navigates with the History API, so the screen is read reactively.
+  // The table and the free negotiations navigate with the History API, so the screen is read reactively.
   const screen = new URLSearchParams(useSearch()).get("screen");
 
   const tableScreen = tableScreenOf(screen);
   if (tableScreen) return <TableApp screen={tableScreen} />;
+  const freeScreen = freeScreenOf(screen);
+  if (freeScreen) return <FreeApp screen={freeScreen} />;
 
   if (screen === "meeting") return <MeetingScreen />;
   if (screen === "brief") return <BriefScreen />;

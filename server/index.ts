@@ -8,6 +8,7 @@ import multer from "multer";
 import OpenAI from "openai";
 import { assessCompletion, closingRequest } from "./completion-policy";
 import { cleanDirectorReply } from "./reply-cleanup";
+import { freeRouter } from "./free/routes";
 import { tableRouter } from "./table/routes";
 
 type ChatRole = "user" | "assistant";
@@ -47,6 +48,9 @@ const upload = multer({
 });
 
 const app = express();
+// Each module keeps its own body limit; a body parsed here is skipped by the general parser below.
+app.use("/api/table", express.json({ limit: "200kb" }));
+app.use("/api/free", express.json({ limit: "1mb" }));
 app.use(express.json({ limit: "800kb" }));
 
 function normalizeMessages(value: unknown): ChatMessage[] {
@@ -650,6 +654,7 @@ app.post("/api/speak", async (request, response) => {
 });
 
 app.use(tableRouter);
+app.use(freeRouter);
 
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
 const clientDist = path.resolve(currentDirectory, "../dist");

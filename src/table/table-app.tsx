@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useModuleClass } from "@/lib/module-class";
 import type { ScreenId } from "@/table/lib/router";
 import { SettingsScreen } from "@/table/screens/settings-screen";
 import { HowtoScreen } from "@/table/screens/howto-screen";
@@ -18,16 +18,8 @@ import "./styles/report.css";
 import "./styles/full-report.css";
 import "./styles/history.css";
 
-/** Marks the document while the table mini-game is shown: its element-level base styles apply only then. */
-function useTableModuleClass() {
-  useLayoutEffect(() => {
-    document.documentElement.classList.add("table-module");
-    return () => document.documentElement.classList.remove("table-module");
-  }, []);
-}
-
 export function TableApp({ screen }: { screen: ScreenId }) {
-  useTableModuleClass();
+  useModuleClass("table-module");
   switch (screen) {
     case "howto":
       return <HowtoScreen />;

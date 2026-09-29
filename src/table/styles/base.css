@@ -19,9 +19,7 @@
 
 html, body, #root { height: 100%; }
 
-/* Element-level base of the mini-game applies only while it is shown (html.table-module, see table-app.tsx),
-   so it does not restyle the lesson screens. :where() keeps the original element-only specificity. */
-:where(html.table-module) body {
+body {
   margin: 0;
   background: var(--bg);
   color: var(--light);
@@ -30,10 +28,10 @@ html, body, #root { height: 100%; }
   text-rendering: geometricPrecision;
 }
 
-:where(html.table-module) :is(button, input, textarea, select) { font: inherit; color: inherit; }
-:where(html.table-module) button { cursor: pointer; background: none; border: 0; padding: 0; }
-:where(html.table-module) button:disabled { cursor: default; }
-:where(html.table-module) :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+button:disabled { cursor: default; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 /* ---------- stage ---------- */
 .viewport {
