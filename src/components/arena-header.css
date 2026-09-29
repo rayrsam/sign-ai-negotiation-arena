@@ -1,0 +1,161 @@
+.arena-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  height: 106px;
+  margin: 0 auto 20px;
+  padding-top: 6px;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+}
+
+.arena-header .brand-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+}
+
+.arena-header .brand-mark {
+  display: block;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  border-radius: 50%;
+}
+
+.arena-header .brand-mark:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.arena-header .brand-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform: scale(1.4);
+  filter: drop-shadow(0 0 13px rgba(255, 97, 74, 0.42));
+}
+
+.arena-header .brand-copy {
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.arena-header .brand-copy h1 {
+  margin: 0;
+  color: #cfe0f7;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.arena-header .brand-copy p {
+  margin: 1px 0 0;
+  color: #cfe0f7;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 13px;
+  white-space: nowrap;
+}
+
+.arena-header .progress-track {
+  margin-top: 24px;
+}
+
+.arena-header .header-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  min-width: 0;
+}
+
+.arena-header .header-actions > :is(button, a) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  height: 44px;
+  padding: 0 16px;
+  border: 2px solid #cfe0f7;
+  border-radius: 999px;
+  color: #cfe0f7;
+  background: transparent;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: box-shadow 180ms ease;
+}
+
+.arena-header .header-actions > :is(button, a):is(:hover, :focus-visible) {
+  box-shadow: 0 0 10px rgba(207, 224, 247, 0.45);
+}
+
+.arena-header .lesson-exit { width: 224px; }
+.arena-header .pause-action { width: 96px; }
+.arena-header .finish-action { width: 164px; }
+
+@media (min-width: 1500px) {
+  .arena-header {
+    height: 140px;
+    margin-bottom: 28px;
+    padding-top: 10px;
+  }
+
+  .arena-header .brand-block { gap: 24px; }
+  .arena-header .brand-mark { width: 68px; height: 68px; flex-basis: 68px; }
+  .arena-header .brand-copy { padding-top: 7px; }
+  .arena-header .brand-copy h1 { font-size: 24px; line-height: 29px; }
+  .arena-header .brand-copy p { margin-top: 2px; font-size: 12px; line-height: 17px; }
+  .arena-header .progress-track { margin-top: 30px; }
+  .arena-header .header-actions { gap: 16px; }
+  .arena-header .header-actions > :is(button, a) {
+    height: 60px;
+    padding-inline: 20px;
+    border-width: 3px;
+    font-size: 24px;
+  }
+  .arena-header .lesson-exit { width: 280px; }
+  .arena-header .pause-action { width: 128px; }
+  .arena-header .finish-action { width: 216px; }
+}
+
+@media (max-width: 1100px) {
+  .arena-header {
+    height: auto;
+    padding-top: 0;
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 14px;
+  }
+
+  .arena-header .progress-track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 820px) {
+  .arena-header {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .arena-header .brand-copy :is(h1, p) { white-space: normal; }
+  .arena-header .header-actions { width: 100%; }
+  .arena-header .header-actions > :is(button, a) { flex: 1; min-width: 0; }
+  .arena-header .progress-track { order: 3; }
+}
+
+@media (max-width: 520px) {
+  .arena-header .brand-mark { width: 44px; height: 44px; flex-basis: 44px; }
+  .arena-header .header-actions > :is(button, a) { padding-inline: 10px; font-size: 16px; }
+}

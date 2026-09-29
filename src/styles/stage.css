@@ -1,0 +1,1804 @@
+/*
+ * Desktop reference layout (1920×1080).
+ * Every value below is taken from the design references in px and the whole screen is
+ * scaled with `zoom`, so proportions stay identical on any desktop resolution.
+ * Text boxes use explicit line-heights so baselines land where the references put them.
+ */
+
+html.ui-stage,
+html.ui-stage body {
+  background: #22201e url("/bg.svg") center / calc(1920px * var(--stage-zoom)) auto repeat;
+}
+
+/* While the mentor layer is open the scene recedes: the page background dims like in the reference. */
+html.ui-stage:has(.mentor-panel.is-hint-open),
+html.ui-stage:has(.mentor-panel.is-hint-open) body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)), url("/bg.svg");
+}
+
+html.ui-stage #root {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+/* Palette of the references; defined on the root so portalled dialogs and report/replay pages share it. */
+html.ui-stage {
+  --ink: #cddff8;
+  --ink-soft: #e8f1fc;
+  --accent: #ff6547;
+  --surface: #544c4c;
+  --base: #22201e;
+  --muted: #8b8484;
+}
+
+html.ui-stage .arena-shell {
+  zoom: var(--stage-zoom);
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  padding: 0 120px;
+  display: grid;
+  grid-template-rows: 196px 827px;
+  align-content: start;
+  overflow: hidden;
+  background: none;
+}
+
+/* ---------- Header ---------- */
+
+html.ui-stage .arena-header {
+  position: relative;
+  display: block;
+  height: 196px;
+  margin: 0;
+  padding: 0;
+}
+
+html.ui-stage .arena-header .brand-mark {
+  position: absolute;
+  top: 25px;
+  left: -18px;
+  width: 97px;
+  height: 97px;
+}
+
+html.ui-stage .arena-header .brand-logo {
+  transform: none;
+  filter: none;
+}
+
+html.ui-stage .arena-header .brand-copy {
+  position: absolute;
+  top: 49px;
+  left: 92px;
+  padding: 0;
+}
+
+html.ui-stage .arena-header .brand-copy h1 {
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+}
+
+html.ui-stage .arena-header .brand-copy p {
+  margin: 1px 0 0;
+  color: var(--ink-soft);
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+html.ui-stage .arena-header .progress-track {
+  --progress-marker-y: 62.3px;
+  --progress-label-y: 79px;
+  position: absolute;
+  top: 72px;
+  left: 572px;
+  width: 536px;
+  height: 96px;
+  margin: 0;
+}
+
+/* Glyph offsets reproduce the reference hand-drawn digits exactly (same header on every screen). */
+html.ui-stage .progress-track .progress-number[data-number="one"] { width: 23px; height: 33px; translate: -8.3px 8.8px; }
+html.ui-stage .progress-track .progress-number[data-number="two"] { width: 22px; height: 33px; translate: -1.8px 9.5px; }
+html.ui-stage .progress-track .progress-number[data-number="three"] { width: 23px; height: 34px; translate: 0.1px 6.2px; }
+html.ui-stage .progress-track .progress-number[data-number="four"] { width: 26px; height: 38px; translate: -9.3px 3.7px; }
+
+html.ui-stage .progress-step small {
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+html.ui-stage .arena-header .header-actions {
+  position: absolute;
+  top: 42px;
+  right: -4px;
+  display: flex;
+  gap: 16px;
+}
+
+html.ui-stage .arena-header .header-actions > :is(button, a) {
+  height: 60px;
+  padding: 0;
+  border: 3px solid var(--ink);
+  color: var(--ink);
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+html.ui-stage .arena-header .lesson-exit { width: 284px; }
+html.ui-stage .arena-header .pause-action { width: 127px; }
+html.ui-stage .arena-header .finish-action { width: 220px; }
+
+html.ui-stage .arena-header .header-actions > .is-active {
+  color: var(--surface);
+  background: var(--ink);
+}
+
+html.ui-stage .arena-header .header-actions > :is(button, a):disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+/* ---------- Meeting grid ---------- */
+
+html.ui-stage .meeting-screen .arena-grid {
+  width: 1680px;
+  height: 827px;
+  display: grid;
+  grid-template-columns: 402px 27px 827px 22px 402px;
+  grid-template-rows: 827px;
+  gap: 0;
+}
+
+html.ui-stage .meeting-screen .conversation-panel { grid-column: 1; }
+html.ui-stage .meeting-screen .meeting-stage { grid-column: 3; }
+html.ui-stage .meeting-screen .brief-column { grid-column: 5; }
+
+/* Conversation */
+
+html.ui-stage .conversation-panel {
+  height: 827px;
+  padding: 23px 28px 24px;
+  border-radius: 20px;
+  background: var(--surface);
+}
+
+html.ui-stage .panel-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+}
+
+html.ui-stage .panel-heading p {
+  margin: 7px 0 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+html.ui-stage .conversation-list {
+  margin-top: 20px;
+  margin-right: -14px;
+  padding-right: 14px;
+}
+
+html.ui-stage .conversation-message {
+  margin: 0 0 16px;
+  padding: 14px 34px 12px 18px;
+  border-radius: 6px 20px 20px 20px;
+  background: var(--base);
+}
+
+html.ui-stage .conversation-message.user {
+  border-radius: 20px 20px 6px 20px;
+  background: var(--ink);
+}
+
+html.ui-stage .conversation-message strong {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  text-transform: none;
+}
+
+html.ui-stage .conversation-message p {
+  margin: 7px 0 0;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+html.ui-stage .conversation-message.user strong {
+  color: var(--surface);
+  font-weight: 700;
+}
+
+html.ui-stage .conversation-message.user p { color: var(--surface); }
+
+/* Stage */
+
+html.ui-stage .meeting-stage {
+  position: relative;
+  display: block;
+  height: 827px;
+}
+
+html.ui-stage .stage-meta {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 0;
+  min-height: 40px;
+  height: 40px;
+}
+
+html.ui-stage .role-chip,
+html.ui-stage .recording-chip,
+html.ui-stage .toolbar-chip {
+  height: 40px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 20px;
+  color: var(--ink);
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+html.ui-stage .role-chip {
+  width: 290px;
+  margin: 0;
+  padding: 0 0 0 6px;
+  gap: 12px;
+  border: 2px solid var(--muted);
+  background: var(--base);
+}
+
+html.ui-stage .role-chip-icon {
+  width: 29px;
+  height: 29px;
+  flex: 0 0 29px;
+  color: var(--ink);
+}
+
+html.ui-stage .recording-chip,
+html.ui-stage .toolbar-chip {
+  margin-left: auto;
+  padding: 0 17px 0 14px;
+  gap: 11px;
+  border: 0;
+  background: var(--surface);
+}
+
+html.ui-stage .recording-chip i,
+html.ui-stage .toolbar-chip i {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+html.ui-stage .recording-chip.calm i,
+html.ui-stage .toolbar-chip.calm i {
+  background: var(--ink);
+  box-shadow: 0 0 8px var(--ink);
+}
+
+html.ui-stage .recording-chip.active i {
+  animation: stageRecDot 1s ease-in-out infinite alternate;
+}
+
+@keyframes stageRecDot {
+  from { opacity: 1; }
+  to { opacity: 0.35; }
+}
+
+html.ui-stage .counterparty-scene {
+  position: absolute;
+  top: 58px;
+  left: 227px;
+  width: 368px;
+  height: 368px;
+  container-type: normal;
+}
+
+html.ui-stage .counterparty-avatar {
+  position: relative;
+  width: 368px;
+  height: 368px;
+  margin: 0;
+  background: var(--surface);
+  box-shadow: none;
+}
+
+html.ui-stage .counterparty-avatar::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 3px solid rgba(205, 223, 248, 0.55);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+html.ui-stage .counterparty-avatar.is-speaking::after {
+  animation: stageSpeaking 1.6s ease-in-out infinite;
+}
+
+@keyframes stageSpeaking {
+  0% { opacity: 0.85; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.06); }
+}
+
+html.ui-stage .current-reply {
+  position: absolute;
+  top: 497px;
+  left: 2px;
+  width: 825px;
+  height: 128px;
+  padding: 19px 12px 12px 22px;
+  border-radius: 20px;
+  background: var(--surface);
+  overflow-y: auto;
+}
+
+html.ui-stage .current-reply strong {
+  display: block;
+  color: var(--accent);
+  font-size: 18.5px;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+html.ui-stage .current-reply p {
+  margin: 5px 0 0;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 25px;
+  white-space: pre-line;
+}
+
+/* Composer */
+
+html.ui-stage .composer-wrap {
+  position: absolute;
+  top: 667px;
+  left: -1px;
+  width: 828px;
+  margin: 0;
+}
+
+html.ui-stage .composer-toolbar {
+  position: relative;
+  height: 41px;
+  margin: 0 0 12px 3px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+html.ui-stage .input-mode {
+  position: relative;
+  width: 162px;
+  height: 41px;
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-radius: 21px;
+  background: transparent;
+}
+
+html.ui-stage .input-mode button {
+  position: absolute;
+  top: 0;
+  width: 88px;
+  min-width: 0;
+  height: 37px;
+  border-radius: 19px;
+  color: var(--ink);
+  background: transparent;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+html.ui-stage .input-mode button:first-child { left: -2px; padding-right: 2px; }
+html.ui-stage .input-mode button:last-child { right: -2px; padding-left: 12px; }
+
+html.ui-stage .input-mode button.active {
+  z-index: 1;
+  color: var(--surface);
+  background: var(--ink);
+}
+
+html.ui-stage .input-mode button:last-child.active { padding-left: 0; }
+
+html.ui-stage .input-mode.is-locked {
+  opacity: 0.55;
+}
+
+html.ui-stage .input-mode.is-locked button.active {
+  background: var(--muted);
+  color: var(--surface);
+}
+
+html.ui-stage .input-mode button:disabled { cursor: default; }
+
+html.ui-stage .composer-shortcut {
+  margin: 0 0 0 28px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+html.ui-stage .hint-action,
+html.ui-stage .toolbar-chip {
+  margin-left: auto;
+}
+
+html.ui-stage .hint-action {
+  width: 162px;
+  height: 41px;
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-radius: 21px;
+  color: var(--ink);
+  background: transparent;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+html.ui-stage .hint-action:hover:not(:disabled) { background: rgba(205, 223, 248, 0.12); }
+html.ui-stage .hint-action:disabled { opacity: 0.5; cursor: default; }
+
+html.ui-stage .toolbar-chip { margin-right: -2px; padding-right: 23px; }
+
+html.ui-stage .voice-composer,
+html.ui-stage .text-composer {
+  position: relative;
+  width: 828px;
+  height: 106px;
+  min-height: 106px;
+  padding: 0 0 0 21px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+  background: var(--base);
+}
+
+html.ui-stage .record-button {
+  width: 60px;
+  height: 60px;
+  flex: 0 0 60px;
+  margin-top: -3px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 0 10px 1px rgba(255, 101, 71, 0.9);
+}
+
+html.ui-stage .record-button .mic-badge {
+  display: block;
+  width: 60px;
+  height: 60px;
+  rotate: 0deg;
+  clip-path: circle(50%);
+}
+
+html.ui-stage .record-button.recording {
+  background: transparent;
+  outline: 0;
+}
+
+html.ui-stage .record-button.is-idle {
+  --mic-fill: #8b8484;
+  --mic-glyph: #544c4c;
+  box-shadow: none;
+}
+
+html.ui-stage .record-button:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+html.ui-stage .record-button:disabled:not(.is-idle) {
+  opacity: 0.55;
+}
+
+html.ui-stage .voice-prompt {
+  margin-left: 27px;
+  align-self: flex-start;
+  padding-top: 10px;
+}
+
+html.ui-stage .voice-prompt strong {
+  display: block;
+  color: var(--ink);
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+}
+
+html.ui-stage .voice-prompt p {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 22px;
+  white-space: pre-line;
+}
+
+html.ui-stage .voice-composer.is-waiting .voice-prompt p { font-size: 15.8px; }
+
+/* Recording */
+
+html.ui-stage .recording-meter {
+  position: relative;
+  align-self: stretch;
+  width: 602px;
+  margin-left: 33px;
+}
+
+html.ui-stage .recording-time {
+  position: absolute;
+  top: 8px;
+  left: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-soft);
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+html.ui-stage .recording-time i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+html.ui-stage .waveform {
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  width: 602px;
+  height: 46px;
+  display: flex;
+  align-items: flex-end;
+  gap: 7.7px;
+  overflow: hidden;
+}
+
+html.ui-stage .waveform i {
+  width: 9px;
+  min-height: 9px;
+  flex: 0 0 9px;
+  max-width: none;
+  border-radius: 4.5px;
+  background: var(--ink);
+  animation: none;
+  transition: height 90ms linear;
+}
+
+html.ui-stage .waveform i.accent { background: var(--accent); }
+
+html.ui-stage .cancel-recording {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--accent);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+html.ui-stage .cancel-recording svg { width: 40px; height: 35px; }
+html.ui-stage .cancel-recording:hover { background: #625858; }
+
+/* Finished */
+
+html.ui-stage .report-cta {
+  position: absolute;
+  top: 21px;
+  right: 28px;
+  width: 373px;
+  height: 60px;
+  padding: 0 26px 0 27px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  border-radius: 30px;
+  color: var(--ink);
+  background: var(--accent);
+  box-shadow: 0 0 14px 2px rgba(255, 101, 71, 0.75);
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+  cursor: pointer;
+}
+
+html.ui-stage .long-arrow { width: 44px; height: 20px; flex: 0 0 44px; }
+
+/* Text composer */
+
+html.ui-stage .text-composer {
+  padding: 0 22px 0 20px;
+  align-items: flex-start;
+}
+
+html.ui-stage .composer-field {
+  position: relative;
+  width: 620px;
+  height: 59px;
+  flex: 0 0 620px;
+  margin-top: 20px;
+  display: block;
+}
+
+html.ui-stage .text-composer textarea {
+  display: block;
+  width: 620px;
+  height: 59px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: var(--surface);
+  background: var(--ink);
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  caret-color: var(--accent);
+}
+
+html.ui-stage .text-composer textarea::placeholder { color: #6f6868; }
+html.ui-stage .text-composer textarea:disabled { opacity: 0.7; }
+
+html.ui-stage .composer-help {
+  position: absolute;
+  top: 60px;
+  left: 15px;
+  padding: 0;
+  color: #5f5858;
+  font-size: 14px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+html.ui-stage .send-action {
+  width: 60px;
+  height: 60px;
+  flex: 0 0 60px;
+  margin: 20px 0 0 auto;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--accent);
+  background: var(--ink);
+  cursor: pointer;
+}
+
+html.ui-stage .send-action svg { width: 60px; height: 60px; }
+html.ui-stage .send-action:disabled { opacity: 1; cursor: default; }
+html.ui-stage .send-action:hover:not(:disabled) { background: #e0ebfc; }
+
+/* ---------- Right column ---------- */
+
+html.ui-stage .brief-column {
+  height: 827px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+html.ui-stage .brief-panel {
+  flex: 0 0 auto;
+}
+
+html.ui-stage .brief-toggle {
+  width: 402px;
+  height: 72px;
+  min-height: 72px;
+  flex: 0 0 72px;
+  padding: 0 34px 0 28px;
+  border-radius: 36px;
+  color: var(--ink);
+  background: var(--surface);
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24.7px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+html.ui-stage .brief-toggle .brief-chevron { width: 20px; height: 12px; margin-right: 0; color: #e8f1fc; }
+html.ui-stage .brief-panel.is-open .brief-chevron { color: var(--ink); }
+
+html.ui-stage .brief-panel.is-open {
+  height: 826px;
+  flex: 0 0 826px;
+  padding: 0 10px 28px 28px;
+  border-radius: 36px;
+  background: var(--surface);
+}
+
+html.ui-stage .brief-panel.is-open .brief-toggle {
+  width: auto;
+  height: 66px;
+  min-height: 66px;
+  flex: 0 0 66px;
+  margin-right: 18px;
+  padding: 0 6px 0 0;
+  border-bottom: 1.5px solid var(--muted);
+  line-height: 32px;
+}
+
+html.ui-stage .brief-panel.is-open .brief-toggle span { position: relative; top: 3px; }
+
+html.ui-stage .brief-details {
+  margin: 18.5px 0 0;
+  padding-right: 9px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 21px;
+  /* Standard scrollbar properties would disable the thin custom scrollbar below. */
+  scrollbar-width: auto;
+  scrollbar-color: auto;
+}
+
+html.ui-stage .brief-details::-webkit-scrollbar { width: 4px; }
+html.ui-stage .brief-details::-webkit-scrollbar-track { background: #383434; }
+html.ui-stage .brief-details::-webkit-scrollbar-thumb { background: var(--ink); }
+
+html.ui-stage .brief-copy { padding-top: 4px; }
+html.ui-stage .brief-copy section + section { margin-top: 23.5px; }
+
+html.ui-stage .brief-copy h2 {
+  margin: 0 0 6.5px;
+  color: var(--accent);
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+html.ui-stage .brief-copy ul {
+  gap: 10px;
+  padding-left: 22.5px;
+  list-style: none;
+}
+
+html.ui-stage .brief-copy li { position: relative; }
+
+html.ui-stage .brief-copy li::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: -20.5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+html.ui-stage .brief-footnote {
+  padding-top: 40px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 19px;
+}
+
+html.ui-stage .task-card {
+  width: 402px;
+  min-height: 0;
+  height: 196px;
+  flex: 0 0 196px;
+  margin: 22px 0 0 1px;
+  padding: 24px 26px 0 26px;
+  border: 2px solid var(--accent);
+  border-radius: 28px;
+  background: var(--surface);
+}
+
+html.ui-stage .task-card h2 {
+  margin: 0;
+  color: var(--accent);
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  text-transform: uppercase;
+}
+
+html.ui-stage .task-card p {
+  margin-top: 14px;
+  max-width: 282px;
+  color: var(--ink-soft);
+  font-size: 15.4px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+html.ui-stage .mentor-panel {
+  width: 403px;
+  flex: 0 0 512px;
+  height: 512px;
+  margin: 25px 0 0;
+  padding: 23px 20px 24px 27px;
+  border: 3px solid var(--muted);
+  border-radius: 29px;
+  background: transparent;
+  overflow: hidden;
+}
+
+html.ui-stage .mentor-title { gap: 13px; }
+html.ui-stage .mentor-title img { width: 32px; height: 32px; }
+
+html.ui-stage .mentor-title h2 {
+  color: var(--accent);
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+}
+
+html.ui-stage .mentor-panel:not(.is-hint-open) > p {
+  margin-top: 14px;
+  color: #f0e4cc;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+html.ui-stage .mentor-options {
+  margin-top: 39px;
+  gap: 21.5px;
+}
+
+html.ui-stage .mentor-option {
+  gap: 20px;
+  color: var(--ink);
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+html.ui-stage .mentor-option img {
+  width: 61px;
+  height: 42.4px;
+  flex: 0 0 61px;
+}
+
+html.ui-stage .mentor-option span { position: relative; top: -3px; }
+
+html.ui-stage .mentor-panel small {
+  padding-top: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 19px;
+}
+
+/* Hint open */
+
+html.ui-stage .mentor-panel.is-hint-open {
+  width: 402px;
+  height: 731px;
+  flex: 0 0 731px;
+  margin-top: 22px;
+  padding: 27px 28px 26px;
+  border: 0;
+  border-radius: 28px;
+  color: var(--surface);
+  background: var(--ink);
+}
+
+html.ui-stage .mentor-panel .mentor-progress-label {
+  margin-top: 7.5px;
+  color: var(--surface);
+  font-size: 14.7px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+html.ui-stage .mentor-progress {
+  width: 334px;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+html.ui-stage .mentor-progress span { height: 8px; background: var(--muted); }
+html.ui-stage .mentor-progress span.active { background: var(--accent); }
+
+html.ui-stage .mentor-panel .mentor-hint {
+  max-width: 330px;
+  margin-top: 26px;
+  color: var(--surface);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32.4px;
+}
+
+html.ui-stage .mentor-actions { gap: 16px; padding-top: 0; }
+
+html.ui-stage .mentor-actions button {
+  width: 346px;
+  height: 60px;
+  min-height: 60px;
+  padding: 0;
+  border: 2px solid var(--surface);
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+html.ui-stage .mentor-panel.is-hint-open small {
+  padding-top: 12px;
+  color: var(--surface);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+html.ui-stage .meeting-stage.is-backgrounded .counterparty-scene,
+html.ui-stage .meeting-stage.is-backgrounded .current-reply {
+  filter: brightness(0.42);
+  transition: filter 200ms ease;
+}
+
+/* ---------- Dialogs ---------- */
+
+/*
+ * Dialogs are portalled to <body> and scale themselves. The dim layer is drawn as a spread
+ * shadow of the dialog instead of ::backdrop, so it always covers the whole window regardless
+ * of how the engine applies zoom to the top layer.
+ */
+.session-dialog { font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif; }
+
+html.ui-stage .session-dialog {
+  zoom: var(--stage-zoom);
+  overflow: visible;
+  box-shadow: 0 0 0 300vmax rgba(0, 0, 0, 0.65);
+}
+
+html.ui-stage .session-dialog::backdrop { background: transparent; }
+
+html.ui-stage .session-dialog:where(:not(.intro-dialog)) {
+  width: 828px;
+  max-height: none;
+  min-height: 400px;
+  translate: 2px 12px;
+  padding: 76px 50px 46px;
+  border: 2px solid var(--muted, #8b8484);
+  border-radius: 40px;
+  background: #544c4c;
+}
+
+html.ui-stage .session-dialog:where(:not(.intro-dialog)) h2 {
+  color: #cddff8;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 68px;
+}
+
+html.ui-stage .session-dialog:where(:not(.intro-dialog)) > p {
+  margin-top: 15px;
+  color: #cddff8;
+  font-size: 22px;
+  line-height: 31px;
+}
+
+html.ui-stage .session-dialog:where(:not(.intro-dialog)) .session-dialog-actions {
+  justify-content: flex-start;
+  gap: 28px;
+  margin-top: 69px;
+}
+
+html.ui-stage .session-dialog:where(:not(.intro-dialog)) .session-dialog-actions button {
+  white-space: nowrap;
+  height: 60px;
+  min-height: 60px;
+  padding: 0 28px;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+html.ui-stage .session-dialog:where(:not(.intro-dialog)) .dialog-secondary {
+  min-width: 0;
+  border: 2px solid #cddff8;
+  color: #cddff8;
+  background: transparent;
+  font-weight: 400;
+}
+
+html.ui-stage .session-dialog:where(:not(.intro-dialog)) .session-dialog-actions .dialog-primary {
+  min-width: 0;
+  padding: 0 26px 0 32px;
+  gap: 32px;
+  border: 2px solid var(--accent, #ff6547);
+  color: #544c4c;
+  background: #cddff8;
+  box-shadow: 0 0 10px 1px rgba(255, 101, 71, 0.85);
+  font-weight: 600;
+}
+
+html.ui-stage .session-dialog .dialog-primary .long-arrow { color: #ff6547; }
+
+html.ui-stage .hint-dialog .dialog-secondary { width: 155px; }
+html.ui-stage .hint-dialog .session-dialog-actions .dialog-primary { width: 409px; }
+html.ui-stage .connection-dialog .dialog-secondary,
+html.ui-stage .pause-dialog .dialog-secondary { width: 320px; padding: 0; }
+html.ui-stage .connection-dialog .session-dialog-actions .dialog-primary,
+html.ui-stage .pause-dialog .session-dialog-actions .dialog-primary { width: 304px; }
+
+html.ui-stage .session-dialog.finish-dialog {
+  min-height: 360px;
+  translate: 0 -8px;
+  padding-top: 46px;
+}
+
+html.ui-stage .finish-dialog h2 { font-size: 48.1px; line-height: 58px; }
+html.ui-stage .finish-dialog > p { margin-top: 17px; }
+html.ui-stage .finish-dialog .session-dialog-actions { margin-top: 67px; }
+html.ui-stage .finish-dialog .dialog-secondary { width: 220px; }
+html.ui-stage .finish-dialog .session-dialog-actions .dialog-primary { width: 433px; padding: 0 28px 0 34px; }
+
+html.ui-stage .hint-dialog .session-dialog-actions { gap: 16px; padding-left: 71px; }
+html.ui-stage .connection-dialog .session-dialog-actions,
+html.ui-stage .pause-dialog .session-dialog-actions { padding-left: 2px; }
+html.ui-stage .finish-dialog .session-dialog-actions { gap: 29px; padding-left: 3px; }
+
+/* ---------- Practice explanation dialog (meeting intro) ---------- */
+
+html.ui-stage .session-dialog.intro-dialog {
+  width: 1320px;
+  height: 690px;
+  max-height: none;
+  translate: 0 0.3px;
+  padding: 0;
+  border: 2px solid var(--muted, #8b8484);
+  border-radius: 40px;
+  color: #cddff8;
+  background: #544c4c;
+}
+
+html.ui-stage .intro-dialog .practice-intro-layout { display: block; height: 100%; }
+html.ui-stage .intro-dialog .practice-intro-copy { display: block; }
+
+html.ui-stage .intro-dialog .practice-intro-copy h2 {
+  position: absolute;
+  top: 58px;
+  left: 55px;
+  max-width: none;
+  color: #cddff8;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 62px;
+}
+
+html.ui-stage .intro-dialog .practice-steps {
+  position: absolute;
+  top: 162px;
+  left: 54px;
+  display: block;
+  margin: 0;
+}
+
+html.ui-stage .intro-dialog .practice-steps li {
+  display: block;
+  height: 104px;
+  padding-left: 68px;
+}
+
+html.ui-stage .intro-dialog .practice-steps li:last-child { height: auto; }
+
+html.ui-stage .intro-dialog .practice-steps .progress-number {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 37px;
+  height: 51px;
+  margin: 0;
+  background-color: #cddff8;
+  mask-position: left top;
+  -webkit-mask-position: left top;
+}
+
+html.ui-stage .intro-dialog .practice-steps li:not(:last-child)::after {
+  top: 63px;
+  bottom: auto;
+  left: 18px;
+  width: 2px;
+  height: 38px;
+  background: #cddff8;
+  opacity: 0.8;
+}
+
+html.ui-stage .intro-dialog .practice-steps li > div { padding: 0; }
+
+html.ui-stage .intro-dialog .practice-steps strong {
+  color: #cddff8;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
+}
+
+html.ui-stage .intro-dialog .practice-steps small {
+  margin-top: 6px;
+  color: #e8f1fc;
+  font-size: 14.4px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+html.ui-stage .intro-dialog .practice-dialog-description {
+  position: absolute;
+  top: 471px;
+  left: 55px;
+  width: 560px;
+  max-width: none;
+  margin: 0;
+  color: #e8f1fc;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+html.ui-stage .intro-dialog .session-dialog-actions {
+  position: absolute;
+  top: 571px;
+  left: 53px;
+  margin: 0;
+  gap: 29px;
+  flex-wrap: nowrap;
+}
+
+html.ui-stage .intro-dialog .session-dialog-actions button {
+  height: 60px;
+  min-height: 60px;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  line-height: 29px;
+  white-space: nowrap;
+}
+
+html.ui-stage .intro-dialog .session-dialog-actions .dialog-primary {
+  width: 402px;
+  min-width: 0;
+  padding: 0 29px 0 34px;
+  border: 2px solid #cddff8;
+  color: #544c4c;
+  background: #ff6547;
+  font-weight: 600;
+}
+
+html.ui-stage .intro-dialog .dialog-primary .long-arrow { color: #544c4c; }
+
+html.ui-stage .intro-dialog .dialog-secondary {
+  width: 250px;
+  min-width: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+html.ui-stage .intro-dialog .practice-intro-preview {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: auto;
+}
+
+html.ui-stage .intro-dialog .practice-intro-avatar {
+  position: absolute;
+  top: 147px;
+  left: 865px;
+  width: 243px;
+  height: 243px;
+  background: #8b8484;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+html.ui-stage .intro-dialog .practice-audio-preview {
+  position: absolute;
+  top: 412px;
+  left: 747px;
+  width: 480px;
+  height: 61.4px;
+  min-height: 0;
+  padding: 0;
+  display: block;
+  border: 2px solid #cddff8;
+  border-radius: 12px;
+  background: #22201e;
+}
+
+html.ui-stage .intro-dialog .practice-record-dot {
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  width: 35.3px;
+  height: 35.3px;
+  filter: drop-shadow(0 0 5px rgba(255, 101, 71, 0.8));
+}
+
+html.ui-stage .intro-dialog .practice-record-dot img { width: 35.3px; height: 35.3px; transform: none; }
+
+html.ui-stage .intro-dialog .practice-audio-time {
+  top: 5px;
+  left: 64px;
+  gap: 3px;
+  color: #e8f1fc;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 7px;
+  font-weight: 700;
+}
+
+html.ui-stage .intro-dialog .practice-waveform {
+  position: absolute;
+  left: 65px;
+  top: 14.8px;
+  width: 348px;
+  height: 26px;
+  display: block;
+  overflow: visible;
+}
+
+html.ui-stage .intro-dialog .practice-waveform i {
+  position: absolute;
+  bottom: 0;
+  width: 5.6px;
+  flex: 0 0 5.6px;
+  max-height: none;
+  border-radius: 2.8px;
+  background: #cddff8;
+}
+
+html.ui-stage .intro-dialog .practice-waveform i:nth-child(5n) { background: #cddff8; }
+html.ui-stage .intro-dialog .practice-waveform i.accent { background: #ff6547; }
+
+html.ui-stage .intro-dialog .practice-audio-close {
+  position: absolute;
+  top: 11px;
+  left: 429.6px;
+  width: 33.5px;
+  height: 33.5px;
+  color: #ff6547;
+  background: #544c4c;
+}
+
+html.ui-stage .intro-dialog .practice-audio-close svg { width: 21.7px; height: 19.8px; }
+
+html.ui-stage .intro-dialog .practice-duration {
+  position: absolute;
+  top: 498px;
+  left: 880.5px;
+  width: 216.8px;
+  height: 40px;
+  min-height: 0;
+  padding: 0 0 0 15px;
+  gap: 10px;
+  border-radius: 20px;
+  color: #e8f1fc;
+  background: #22201e;
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14.6px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+html.ui-stage .intro-dialog .practice-duration i {
+  width: 12px;
+  height: 12px;
+  background: #ff6547;
+  box-shadow: 0 0 8px #ff6547;
+}
+
+/* ---------- L06 · К практике ---------- */
+
+html.ui-stage .practice-gateway-screen { padding-bottom: 0; }
+
+html.ui-stage .practice-gateway-grid {
+  position: relative;
+  width: 1680px;
+  height: 827px;
+  margin: 0;
+  display: block;
+}
+
+html.ui-stage .practice-gateway-card {
+  position: absolute;
+  top: 12px;
+  left: 96px;
+  width: 880px;
+  height: 722px;
+  aspect-ratio: auto;
+  padding: 0;
+  display: block;
+  border-radius: 40px;
+  color: #cddff8;
+  background: #544c4c;
+}
+
+html.ui-stage .practice-gateway-kicker {
+  position: absolute;
+  top: 48px;
+  left: 48px;
+  color: #ff6547;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+html.ui-stage .practice-gateway-card h2 {
+  position: absolute;
+  top: 70px;
+  left: 48px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 78px;
+}
+
+html.ui-stage .practice-gateway-lead {
+  position: absolute;
+  top: 150px;
+  left: 49px;
+  margin: 0;
+  color: #cddff8;
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24.4px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+html.ui-stage .practice-gateway-steps {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  margin: 0;
+  display: block;
+}
+
+html.ui-stage .practice-gateway-steps li {
+  position: absolute;
+  left: 114px;
+  display: block;
+  color: #8b8484;
+}
+
+html.ui-stage .practice-gateway-steps li:nth-child(1) { top: 265px; }
+html.ui-stage .practice-gateway-steps li:nth-child(2) { top: 352px; }
+html.ui-stage .practice-gateway-steps li:nth-child(3) { top: 436px; }
+html.ui-stage .practice-gateway-steps li.active { color: #ff6547; }
+
+html.ui-stage .practice-gateway-steps li > .progress-number {
+  position: absolute;
+  width: 34px;
+  height: 47px;
+  margin: 0;
+  translate: none;
+  mask-size: contain;
+  mask-position: left top;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: left top;
+}
+
+html.ui-stage .practice-gateway-steps li:nth-child(1) > .progress-number { top: 3px; left: -75px; width: 33.3px; height: 42.6px; }
+html.ui-stage .practice-gateway-steps li:nth-child(2) > .progress-number { top: 4px; left: -65px; width: 28.1px; height: 44.6px; }
+html.ui-stage .practice-gateway-steps li:nth-child(3) > .progress-number { top: 5px; left: -66px; width: 33.6px; height: 46.7px; }
+
+html.ui-stage .practice-gateway-steps li:not(:last-child)::after {
+  top: 57px;
+  bottom: auto;
+  left: -49.5px;
+  width: 2px;
+  height: 24px;
+  background: #8b8484;
+}
+
+html.ui-stage .practice-gateway-steps li > div { padding: 0; }
+
+html.ui-stage .practice-gateway-steps strong {
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
+  white-space: nowrap;
+}
+
+html.ui-stage .practice-gateway-steps small {
+  margin-top: 5px;
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14.4px;
+  font-weight: 600;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+html.ui-stage .practice-gateway-steps .active small { color: #cddff8; }
+
+html.ui-stage .practice-gateway-action {
+  position: absolute;
+  top: 629px;
+  left: 48px;
+  width: 380px;
+  height: 60px;
+  min-height: 0;
+  aspect-ratio: auto;
+  margin: 0;
+  padding: 0 29px 0 34px;
+  border: 2px solid #cddff8;
+  color: #544c4c;
+  background: #ff6547;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24.4px;
+  font-weight: 600;
+  line-height: 29px;
+}
+
+html.ui-stage .practice-gateway-action svg { display: none; }
+html.ui-stage .practice-gateway-action .long-arrow { display: block; margin: 0; }
+
+html.ui-stage .practice-gateway-visual {
+  top: 201.5px;
+  left: 590.3px;
+  right: auto;
+  bottom: auto;
+  width: 288px;
+  height: 523px;
+  aspect-ratio: auto;
+}
+
+html.ui-stage .practice-concepts {
+  position: absolute;
+  top: 10.8px;
+  left: 1066px;
+  width: 522.6px;
+  display: block;
+}
+
+html.ui-stage .practice-concept {
+  --practice-notched-radius: 18px;
+  position: absolute;
+  left: 0;
+  width: 522.6px;
+  height: 183px;
+  display: block;
+  border-radius: 28px;
+  color: #544c4c;
+  mask-image:
+    radial-gradient(circle at 0 63px, transparent var(--practice-notched-radius), #000 calc(var(--practice-notched-radius) + 0.5px)),
+    radial-gradient(circle at 100% 63px, transparent var(--practice-notched-radius), #000 calc(var(--practice-notched-radius) + 0.5px));
+}
+
+html.ui-stage .practice-concept.position { top: 0; --ticket-background: #f0e4cc; }
+html.ui-stage .practice-concept.interest { top: 270px; }
+html.ui-stage .practice-concept.check { top: 540.1px; --ticket-background: #cddff8; }
+
+html.ui-stage .practice-concept h3 {
+  position: absolute;
+  top: 12.7px;
+  left: 0;
+  right: 0;
+  display: block;
+  padding: 0;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
+}
+
+html.ui-stage .practice-concept > span {
+  inset: 60px 36px auto 42px;
+  border-top: 6px dotted #22201e;
+}
+
+html.ui-stage .practice-concept p {
+  position: absolute;
+  top: 100.7px;
+  left: 0;
+  right: 0;
+  display: block;
+  padding: 0;
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+/* ---------- Бриф практики ---------- */
+
+html.ui-stage .brief-screen {
+  padding: 0 120px;
+  overflow: hidden;
+}
+
+html.ui-stage .brief-screen-grid {
+  width: 1680px;
+  height: 815px;
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 880px 760px;
+  column-gap: 40px;
+  overflow: visible;
+}
+
+html.ui-stage .brief-screen-overview {
+  height: 815px;
+  padding: 48px 48px 0;
+  display: block;
+  overflow: visible;
+  border-radius: 40px;
+  background: #544c4c;
+}
+
+html.ui-stage .brief-screen-kicker {
+  display: block;
+  color: #ff6547;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+html.ui-stage .brief-screen-title {
+  margin: 7px 0 0;
+  color: #cddff8;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 58px;
+  white-space: nowrap;
+}
+
+html.ui-stage .brief-screen-section {
+  display: block;
+  width: 783px;
+  margin-top: 32px;
+}
+
+html.ui-stage .brief-screen-title + .brief-screen-section { margin-top: 41px; }
+
+html.ui-stage .brief-screen-section h3,
+html.ui-stage .brief-screen-task h3 {
+  color: #ff6547;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+html.ui-stage .brief-screen-section p {
+  margin-top: -1px;
+  color: #e8f1fc;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+html.ui-stage .brief-screen-task {
+  display: block;
+  width: 816px;
+  height: 130px;
+  margin: 37px 0 0 -16px;
+  padding: 17px 30px 0 32px;
+  border: 2px solid #ff6547;
+  border-radius: 24px;
+}
+
+html.ui-stage .brief-screen-task p {
+  margin-top: 11px;
+  color: #cddff8;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+html.ui-stage .brief-screen-lesson { margin-top: 30px; }
+html.ui-stage .brief-screen-lesson h3 { color: #f0e4cc; font-size: 24px; line-height: 29px; }
+html.ui-stage .brief-screen-lesson p { width: 800px; margin-top: 9px; }
+.stage-break { display: none; }
+html.ui-stage .stage-break { display: inline; }
+
+html.ui-stage .brief-screen-side {
+  display: block;
+  height: 815px;
+}
+
+html.ui-stage .brief-screen-role {
+  width: auto;
+  height: 40px;
+  min-height: 40px;
+  margin: 0;
+  padding: 0 20px;
+  display: inline-flex;
+  border: 2px solid #8b8484;
+  border-radius: 20px;
+  color: #cddff8;
+  background: #22201e;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+html.ui-stage .brief-screen-role svg { display: none; }
+
+html.ui-stage .brief-screen-facts {
+  display: block;
+  height: 300px;
+  margin-top: 20px;
+  padding: 24.7px 38px 0;
+  border-radius: 32px;
+  color: #544c4c;
+  background: #cddff8;
+}
+
+html.ui-stage .brief-screen-facts h2,
+html.ui-stage .brief-screen-how h2 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
+}
+
+html.ui-stage .brief-screen-facts-list {
+  gap: 16px;
+  margin: 24.5px 0 0;
+  color: #544c4c;
+  font-size: 18.6px;
+  line-height: 22px;
+}
+
+html.ui-stage .brief-screen-facts-list li { padding-left: 26.5px; }
+
+html.ui-stage .brief-screen-facts-list li::before {
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background: #ff6547;
+}
+
+html.ui-stage .brief-screen-facts .brief-screen-footnote {
+  margin: 40px 0 0 -1px;
+  padding: 0;
+  color: #544c4c;
+  font-size: 15px;
+  line-height: 19px;
+}
+
+html.ui-stage .brief-screen-how {
+  display: block;
+  height: 336px;
+  margin-top: 19.6px;
+  padding: 30.3px 38px 0 36px;
+  border-radius: 32px;
+  background: #544c4c;
+}
+
+html.ui-stage .brief-screen-how h2 { color: #cddff8; margin-left: 2px; }
+
+html.ui-stage .brief-screen-how-row {
+  height: 75px;
+  display: flex;
+  align-items: flex-start;
+  gap: 34px;
+}
+
+html.ui-stage .brief-screen-how h2 + .brief-screen-how-row { margin-top: 32.7px; }
+
+html.ui-stage .brief-screen-how-icon {
+  width: 43.5px;
+  height: 43.5px;
+  flex: 0 0 43.5px;
+}
+
+html.ui-stage .brief-screen-how-icon img,
+html.ui-stage .brief-screen-how-icon svg {
+  width: 43.5px;
+  height: 43.5px;
+}
+
+html.ui-stage .brief-screen-how-row > div { padding-top: 0; }
+
+html.ui-stage .brief-screen-how-row h3 {
+  margin: 0;
+  color: #cddff8;
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+html.ui-stage .brief-screen-how-row p {
+  margin: 3.3px 0 0;
+  color: #e8f1fc;
+  font-size: 15px;
+  line-height: 19px;
+  white-space: nowrap;
+}
+
+html.ui-stage .brief-screen-actions {
+  margin-top: 39.4px;
+  display: flex;
+  gap: 24px;
+}
+
+html.ui-stage .brief-screen-actions button {
+  height: 60px;
+  padding: 0;
+  border-radius: 30px;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+}
+
+html.ui-stage .brief-screen-actions .brief-back {
+  width: 360px;
+  border: 2px solid #cddff8;
+  color: #cddff8;
+  background: #22201e;
+}
+
+html.ui-stage .brief-screen-actions .brief-start {
+  width: 376px;
+  padding: 0 29px 0 34px;
+  justify-content: space-between;
+  border: 2px solid #cddff8;
+  color: #544c4c;
+  background: #ff6547;
+  box-shadow: 0 0 10px 1px rgba(205, 223, 248, 0.75);
+  font-size: 24.4px;
+  font-weight: 600;
+}
+
+html.ui-stage .brief-screen-actions .brief-start:hover { background: #ff6547; filter: brightness(1.06); }
+html.ui-stage .brief-screen-actions .brief-start .long-arrow { color: #544c4c; }
+
+html.ui-stage .brief-screen-actions .brief-start > svg:not(.long-arrow) { display: none; }
+
+/* ---------- Reports: the size container becomes the 1920×1080 canvas ---------- */
+
+html.ui-stage .report-stage {
+  zoom: var(--stage-zoom);
+  width: 1920px;
+  height: 1080px;
+}
+
+html.ui-stage .report-page,
+html.ui-stage .replay-page {
+  background: none;
+}

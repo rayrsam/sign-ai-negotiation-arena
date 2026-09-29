@@ -1,0 +1,241 @@
+/*
+ * Base (responsive) styles for elements added with the reference redesign.
+ * The desktop canvas (stage.css / stage-reports.css) overrides these with exact reference values.
+ */
+
+.long-arrow {
+  display: block;
+  width: 36px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.role-chip-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+.mic-badge {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.record-button .mic-badge { clip-path: circle(50%); }
+.record-button.is-idle { --mic-fill: #8b8484; box-shadow: none; }
+
+.toolbar-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  padding: 6px 12px;
+  border-radius: 999px;
+  color: #cddff8;
+  background: #544c4c;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.toolbar-chip i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff6547;
+}
+
+.toolbar-chip.calm i { background: #cddff8; }
+.recording-chip.calm i { background: #cddff8; }
+
+.composer-shortcut {
+  margin: 0 0 0 12px;
+  overflow: hidden;
+  color: #e8f1fc;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.voice-prompt p { white-space: pre-line; }
+
+.recording-meter {
+  position: relative;
+  min-width: 0;
+  flex: 1;
+  align-self: stretch;
+}
+
+.recording-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #e8f1fc;
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.recording-time i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff6547;
+}
+
+.recording-meter .waveform { height: 40px; align-items: flex-end; }
+
+.cancel-recording {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #ff6547;
+  background: #544c4c;
+  cursor: pointer;
+}
+
+.cancel-recording svg { width: 60%; height: 60%; }
+
+.report-cta {
+  margin-left: auto;
+  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 0;
+  border-radius: 999px;
+  color: #cddff8;
+  background: #ff6547;
+  box-shadow: 0 0 12px rgba(255, 101, 71, 0.6);
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.counterparty-avatar { position: relative; }
+
+.counterparty-avatar.is-speaking {
+  box-shadow: 0 0 0 3px rgba(205, 223, 248, 0.45), 0 0 18px rgba(205, 223, 248, 0.35);
+}
+
+.meeting-stage.is-backgrounded .counterparty-scene,
+.meeting-stage.is-backgrounded .current-reply { filter: brightness(0.42); }
+
+.send-action {
+  display: grid;
+  place-items: center;
+  border: 0;
+  cursor: pointer;
+}
+
+.send-action svg { width: 100%; height: 100%; }
+
+/* Reports */
+
+.report-search-icon { width: 18px; height: 17px; flex: 0 0 18px; }
+
+.score-fraction {
+  display: inline-flex;
+  align-items: flex-start;
+  height: 1em;
+  color: #ff6547;
+}
+
+.score-fraction .progress-number {
+  width: 0.72em;
+  height: 1em;
+  margin: 0;
+  background-color: currentColor;
+}
+
+.score-slash {
+  width: 0.52em;
+  height: 0.96em;
+  margin: 0 0.12em;
+  color: currentColor;
+}
+
+.report-score-tile > strong .progress-number {
+  width: 48px;
+  height: 64px;
+  margin: 0 auto;
+  background-color: currentColor;
+}
+
+.report-target-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  color: #ff6547;
+}
+
+.report-quote-ticket span b { margin-left: 10px; color: #ff6547; }
+
+.report-metric-na { color: #cddff8; font-weight: 700; }
+
+.report-interest-icon {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  color: #ff6547;
+}
+
+.report-interests p > span { display: block; }
+.report-interests p small { display: block; margin-top: 2px; font-weight: 400; opacity: 0.85; }
+
+.report-opportunity-top strong { display: inline-flex; align-items: flex-start; }
+
+.report-opportunity-top .progress-number {
+  width: 24px;
+  height: 32px;
+  background-color: currentColor;
+}
+
+.report-next-lesson-action { margin-top: 12px; }
+
+.replay-history-list em {
+  display: block;
+  margin-top: 2px;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.replay-history-note {
+  display: block;
+  margin-top: 12px;
+  color: #8b8484;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.brief-chevron { width: 16px; height: 10px; flex: 0 0 auto; color: currentColor; }
+.score-na { display: block; width: 2.2em; height: 1em; color: #8b8484; }
+
+/* The keyboard hint is only useful with a physical keyboard next to a wide composer. */
+@media (max-width: 1100px) { .composer-shortcut { display: none; } }
+
+/* Narrow screens: the finished state stacks the "go to report" button under the message. */
+html:not(.ui-stage) .voice-composer.is-finished {
+  height: auto;
+  min-height: 66px;
+  flex-wrap: wrap;
+  row-gap: 12px;
+  padding-block: 12px;
+}
+
+html:not(.ui-stage) .voice-composer.is-waiting .voice-prompt { min-width: 0; flex: 1 1 0; }
+
+html:not(.ui-stage) .voice-composer.is-finished .report-cta {
+  width: 100%;
+  margin-left: 0;
+  justify-content: space-between;
+}

@@ -1,0 +1,97 @@
+.progress-track {
+  --progress-marker-y: 40px;
+  --progress-label-y: 51px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  flex-shrink: 0;
+  width: 360px;
+  max-width: 100%;
+  min-width: 0;
+  height: 76px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.progress-track::before {
+  content: "";
+  position: absolute;
+  top: var(--progress-marker-y);
+  left: 12.5%;
+  right: 12.5%;
+  height: 3px;
+  translate: 0 -50%;
+  background: #8b8484;
+}
+
+.progress-step {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  color: #544c4c;
+}
+
+.progress-track .progress-number {
+  width: 22px;
+  height: 28px;
+  margin: 0;
+}
+
+.progress-step::after {
+  content: "";
+  position: absolute;
+  top: var(--progress-marker-y);
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  translate: -50% -50%;
+  border: 2px solid #8b8484;
+  border-radius: 50%;
+  background: #22201e;
+}
+
+.progress-step.completed { color: #8b8484; }
+.progress-step.completed::after { background: #8b8484; }
+.progress-step.completed .progress-number[data-number="one"] { background: center / contain no-repeat url("/number/one-active.svg"); mask-image: none; -webkit-mask-image: none; }
+.progress-step.completed .progress-number[data-number="two"] { background: center / contain no-repeat url("/number/two-active.svg"); mask-image: none; -webkit-mask-image: none; }
+
+.progress-step small {
+  position: absolute;
+  top: var(--progress-label-y);
+  color: #8b8484;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.progress-step:first-child small { font-weight: 700; }
+.progress-step.active,
+.progress-step.active small { color: #ff6547; }
+
+.progress-step.active::after {
+  width: 20px;
+  height: 20px;
+  border-color: #ff6547;
+  background: #ff6547;
+  box-shadow: 0 0 12px rgba(255, 101, 71, 0.62);
+}
+
+@media (min-width: 1500px) {
+  .progress-track {
+    --progress-marker-y: 57px;
+    --progress-label-y: 73px;
+    width: 536px;
+    height: 96px;
+  }
+
+  /* Native SVG bounds and offsets match the 1920px reference. */
+  .progress-track .progress-number[data-number="one"] { width: 23px; height: 33px; translate: -7px 4px; }
+  .progress-track .progress-number[data-number="two"] { width: 22px; height: 33px; translate: 0 4px; }
+  .progress-track .progress-number[data-number="three"] { width: 23px; height: 34px; translate: 1px 2px; }
+  .progress-track .progress-number[data-number="four"] { width: 26px; height: 38px; translate: -7px -1px; }
+  .progress-step small { font-size: 12px; }
+}

@@ -1,0 +1,2277 @@
+/*
+ * Desktop reference layout for report screens (1920×1080 canvas, see stage.css).
+ * Values come from the report references in px.
+ */
+
+/* ---------- Shell: sidebar + header ---------- */
+
+html.ui-stage .report-sidebar {
+  top: 46px;
+  bottom: auto;
+  left: 62px;
+  width: 70px;
+  height: 977px;
+}
+
+html.ui-stage .report-sidebar::before {
+  top: 30px;
+  left: 0;
+  right: 0;
+  height: 643px;
+  border-radius: 35px;
+  background: #8b8484;
+}
+
+html.ui-stage .report-sidebar-logo {
+  position: absolute;
+  top: -19.8px;
+  left: -25.6px;
+  width: 121px;
+  height: 121px;
+  margin: 0;
+  transform: none;
+  filter: none;
+}
+
+html.ui-stage .report-sidebar-logo img {
+  width: 121px;
+  height: 121px;
+  transform: none;
+  filter: none;
+}
+
+html.ui-stage .report-sidebar-nav {
+  position: absolute;
+  top: 200px;
+  left: 10px;
+  height: auto;
+  display: grid;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+html.ui-stage .report-sidebar-icon,
+html.ui-stage .report-sidebar-account,
+html.ui-stage .report-sidebar-settings {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+}
+
+html.ui-stage .report-sidebar-icon img,
+html.ui-stage .report-sidebar-account img,
+html.ui-stage .report-sidebar-settings img {
+  width: 50px;
+  height: 50px;
+}
+
+html.ui-stage .report-sidebar-icon.is-active img {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 66px;
+  height: 66px;
+  margin: 0;
+  translate: none;
+  transform: none;
+}
+
+html.ui-stage .report-sidebar-bottom {
+  position: absolute;
+  top: 838px;
+  left: 0;
+  width: 70px;
+  height: 139px;
+  margin: 0;
+  padding: 13px 10px 0;
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  border-radius: 35px;
+  background: #8b8484;
+}
+
+html.ui-stage .report-main {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0 90px 0 208px;
+}
+
+html.ui-stage .report-header {
+  position: relative;
+  height: 172px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+html.ui-stage .report-header h1 {
+  position: absolute;
+  top: 40.4px;
+  left: 37px;
+  margin: 0;
+  color: #ff6547;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 67px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-header p {
+  position: absolute;
+  top: 113.4px;
+  left: 37px;
+  margin: 0;
+  color: #e8f1fc;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-header-tools {
+  position: absolute;
+  top: 67px;
+  right: 0;
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+html.ui-stage .report-search {
+  width: 270px;
+  height: 41px;
+  min-height: 0;
+  padding: 0 0 0 15px;
+  gap: 30px;
+  border-radius: 21px;
+  background: #cddff8;
+}
+
+html.ui-stage .report-search svg {
+  width: 27px;
+  height: 25px;
+  flex: 0 0 27px;
+  color: #544c4c;
+}
+
+html.ui-stage .report-search input {
+  color: #544c4c;
+  font-size: 16.6px;
+  line-height: 20px;
+}
+
+html.ui-stage .report-search input::placeholder {
+  color: #544c4c;
+  opacity: 1;
+}
+
+html.ui-stage .report-header-user,
+html.ui-stage .report-header-user img {
+  width: 41px;
+  height: 41px;
+}
+
+/* ---------- Hand-drawn score ---------- */
+
+html.ui-stage .score-fraction {
+  display: flex;
+  align-items: flex-start;
+  height: 47px;
+}
+
+html.ui-stage .score-fraction .progress-number {
+  width: 34px;
+  height: 47px;
+  margin: 0;
+  translate: none;
+  background-color: #ff6547;
+  mask-position: center top;
+  -webkit-mask-position: center top;
+}
+
+html.ui-stage .score-fraction .progress-number[data-number="four"] {
+  height: 45px;
+  margin-top: 2px;
+}
+
+html.ui-stage .score-na {
+  display: block;
+  width: 104.5px;
+  height: 46.7px;
+  color: #8b8484;
+}
+
+html.ui-stage .score-slash {
+  width: 24.4px;
+  height: 45.2px;
+  margin: 1.3px 7.4px 0 5.6px;
+}
+
+/* ---------- Short report ---------- */
+
+html.ui-stage .report-short-grid {
+  position: relative;
+  display: block;
+  width: 1622px;
+  height: 851px;
+}
+
+html.ui-stage .report-short-left {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 1008px;
+  display: block;
+}
+
+html.ui-stage .report-status-card {
+  position: relative;
+  width: 1008px;
+  height: 367px;
+  min-height: 0;
+  padding: 0;
+  border-radius: 40px;
+  background: #544c4c;
+}
+
+html.ui-stage .report-status-heading {
+  position: static;
+  display: block;
+}
+
+html.ui-stage .report-status-heading h2 {
+  position: absolute;
+  top: 26.1px;
+  left: 37px;
+  color: #cddff8;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-status-heading p {
+  position: absolute;
+  top: 71.9px;
+  left: 37px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 18px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-status-score {
+  position: absolute;
+  top: 27px;
+  right: 36px;
+  align-items: flex-end;
+}
+
+html.ui-stage .report-status-score strong { line-height: 47px; }
+
+html.ui-stage .report-status-score.is-unassessed strong {
+  color: #8b8484;
+  font-size: 60px;
+  font-weight: 400;
+}
+
+html.ui-stage .report-status-score small {
+  margin-top: 14px;
+  color: #cddff8;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+html.ui-stage .report-status-score.is-unassessed small { color: #8b8484; }
+
+html.ui-stage .report-status-bottom {
+  position: absolute;
+  top: 128px;
+  left: 36px;
+  right: 36px;
+  display: block;
+  margin: 0;
+}
+
+html.ui-stage .report-score-list {
+  display: flex;
+  gap: 18px;
+}
+
+html.ui-stage .report-score-tile {
+  position: relative;
+  width: 141px;
+  height: 204px;
+  min-height: 0;
+  padding: 0;
+  display: block;
+  border: 0;
+  border-radius: 20px;
+  color: #544c4c;
+  background: #f0e4cc;
+  box-shadow: none;
+}
+
+html.ui-stage .report-score-tile.is-accent {
+  background: #ff6547;
+  box-shadow: 0 0 12px 2px rgba(255, 101, 71, 0.55);
+}
+
+html.ui-stage .report-score-tile.is-empty {
+  color: #8b8484;
+  background: transparent;
+  outline: 5px dotted #8b8484;
+  outline-offset: -5px;
+}
+
+html.ui-stage .report-score-tile > span {
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-score-tile > strong {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+html.ui-stage .report-score-tile .progress-number {
+  width: 56px;
+  height: 78px;
+  margin: 0;
+  translate: none;
+  background-color: #544c4c;
+  mask-position: center top;
+  -webkit-mask-position: center top;
+}
+
+html.ui-stage .report-score-dots {
+  position: absolute;
+  top: 149px;
+  left: 16px;
+  gap: 6px;
+  margin: 0;
+}
+
+html.ui-stage .report-score-dots i {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid #544c4c;
+}
+
+html.ui-stage .report-score-dots i.is-filled { background: #544c4c; }
+
+html.ui-stage .report-score-tile small {
+  position: absolute;
+  top: 165px;
+  left: 16px;
+  margin: 0;
+  font-size: 14.3px;
+  font-weight: 600;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-support {
+  position: absolute;
+  top: -1px;
+  left: 489px;
+  width: 460px;
+  padding: 0;
+}
+
+html.ui-stage .report-support h3 {
+  margin: 12.9px 0 0;
+  color: #cddff8;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+}
+
+html.ui-stage .report-support p {
+  width: 470px;
+  margin: 12.9px 0 0;
+  color: #cddff8;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+html.ui-stage .report-target-label {
+  position: absolute;
+  top: 143px;
+  left: -2px;
+  gap: 13px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 16.3px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-target-icon {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  color: #ff6547;
+}
+
+html.ui-stage .report-target-icon.is-question { color: #f0e4cc; }
+
+html.ui-stage .report-short-notes {
+  position: absolute;
+  top: 459px;
+  left: 0;
+  width: 1008px;
+  display: flex;
+  gap: 24px;
+}
+
+html.ui-stage .report-note-card {
+  position: relative;
+  width: 492px;
+  height: 392px;
+  min-height: 0;
+  padding: 29.6px 20px 0 37px;
+  border-radius: 40px;
+}
+
+html.ui-stage .report-improvement { background: #8b8484; }
+html.ui-stage .report-strength { background: #544c4c; }
+
+html.ui-stage .report-note-card h2 {
+  margin: 0;
+  color: #cddff8;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-improvement > p {
+  margin: 28.3px 0 0;
+  color: #342e2e;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+html.ui-stage .report-evidence-pill {
+  position: absolute;
+  top: 223px;
+  left: 36px;
+  height: 40px;
+  margin: 0;
+  padding: 0 25px 0 15px;
+  gap: 10px;
+  border-radius: 20px;
+  color: #e8f1fc;
+  background: #22201e;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+html.ui-stage .report-evidence-pill i {
+  width: 12px;
+  height: 12px;
+  background: #ff6547;
+}
+
+html.ui-stage .report-note-card > small {
+  position: absolute;
+  top: 296.8px;
+  left: 37px;
+  margin: 0;
+  color: #e8f1fc;
+  font-size: 16px;
+  line-height: 22px;
+  white-space: pre-line;
+}
+
+html.ui-stage .report-improvement > small { color: #3a3434; }
+html.ui-stage .report-strength > small { top: 304.8px; }
+
+html.ui-stage .report-quote-ticket {
+  position: absolute;
+  top: 96px;
+  left: 23px;
+  width: 440px;
+  height: 178px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 28px;
+  color: #544c4c;
+  background: #cddff8;
+}
+
+html.ui-stage .report-quote-ticket::before,
+html.ui-stage .report-quote-ticket::after {
+  top: 58px;
+  width: 36px;
+  height: 36px;
+  background: #544c4c;
+}
+
+html.ui-stage .report-quote-ticket::before { left: -18px; }
+html.ui-stage .report-quote-ticket::after { right: -18px; }
+
+html.ui-stage .report-quote-ticket span {
+  position: absolute;
+  top: 22px;
+  left: 38px;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-quote-ticket span b {
+  margin-left: 18px;
+  color: #ff6547;
+  font-weight: 700;
+}
+
+html.ui-stage .report-quote-ticket i {
+  position: absolute;
+  top: 52px;
+  left: 34px;
+  right: 34px;
+  margin: 0;
+  border-top: 7px dotted #544c4c;
+}
+
+html.ui-stage .report-quote-ticket p {
+  position: absolute;
+  top: 82px;
+  left: 38px;
+  right: 22px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+html.ui-stage .report-short-right {
+  position: absolute;
+  top: 0;
+  left: 1100px;
+  width: 522px;
+  display: block;
+}
+
+html.ui-stage .report-short-right > h2 {
+  margin: 0;
+  padding: 11.7px 0 0 22px;
+  color: #cddff8;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 58px;
+}
+
+html.ui-stage .report-metric {
+  width: 522px;
+  height: 52px;
+  min-height: 0;
+  margin: 0;
+  padding: 0 16px 0 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 26px;
+  background: #544c4c;
+}
+
+html.ui-stage .report-short-right > h2 + .report-metric { margin-top: 38.3px; }
+html.ui-stage .report-metric + .report-metric { margin-top: 17px; }
+
+html.ui-stage .report-metric > span {
+  color: #cddff8;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+html.ui-stage .report-metric > small {
+  padding-right: 6px;
+  color: #8b8484;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+html.ui-stage .report-metric > small.report-metric-na { color: #cddff8; }
+
+html.ui-stage .report-metric-dots { gap: 7px; }
+
+html.ui-stage .report-metric-dots i {
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid #cddff8;
+  background: transparent;
+}
+
+html.ui-stage .report-metric-dots.is-accent i.is-filled { border-color: #ff6547; background: #ff6547; }
+html.ui-stage .report-metric-dots.is-soft i.is-filled { border-color: #f0e4cc; background: #f0e4cc; }
+
+html.ui-stage .report-outcome {
+  width: 522px;
+  height: 121px;
+  min-height: 0;
+  margin: 17px 0 0;
+  padding: 25px 20px 0 29px;
+  display: block;
+  border-radius: 34px;
+  background: #8b8484;
+}
+
+html.ui-stage .report-outcome span {
+  display: block;
+  color: #ff6547;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+html.ui-stage .report-outcome p {
+  margin: 8px 0 0;
+  color: #22201e;
+  font-size: 18.4px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+html.ui-stage .report-outcome small {
+  display: block;
+  margin: 0;
+  color: #22201e;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+html.ui-stage .report-short-actions {
+  position: absolute;
+  top: 459px;
+  left: 0;
+  width: 522px;
+  margin: 0;
+  display: grid;
+  gap: 24px;
+}
+
+html.ui-stage .report-action-gap {
+  height: 112px;
+  margin: -24px 0;
+}
+
+/* ---------- Report actions ---------- */
+
+html.ui-stage .report-action {
+  width: 522px;
+  height: 60px;
+  min-height: 0;
+  padding: 0 27px 0 32px;
+  border: 2px solid #cddff8;
+  border-radius: 30px;
+  color: #cddff8;
+  background: #544c4c;
+  box-shadow: 0 0 10px rgba(205, 223, 248, 0.55);
+  font-size: 24.4px;
+  font-weight: 400;
+  line-height: 29px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-action.is-emphasis {
+  border-color: #ff6547;
+  color: #544c4c;
+  background: #cddff8;
+  box-shadow: 0 0 10px 1px rgba(255, 101, 71, 0.75);
+}
+
+html.ui-stage .report-action.is-primary {
+  border-color: #cddff8;
+  color: #544c4c;
+  background: #ff6547;
+  box-shadow: 0 0 10px 1px rgba(205, 223, 248, 0.75);
+}
+
+html.ui-stage .report-action .long-arrow { color: #ff6547; }
+html.ui-stage .report-action.is-primary .long-arrow { color: #544c4c; }
+
+/* ---------- Итог урока ---------- */
+
+html.ui-stage .lesson-outcome-grid {
+  position: relative;
+  display: block;
+  width: 1622px;
+  height: 851px;
+}
+
+html.ui-stage .lesson-outcome-left {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 1008px;
+  display: block;
+}
+
+html.ui-stage .lesson-outcome-summary {
+  position: relative;
+  width: 1008px;
+  height: 367px;
+  min-height: 0;
+  padding: 0;
+  border-radius: 40px;
+  background: #544c4c;
+}
+
+html.ui-stage .lesson-outcome-summary-head { display: block; }
+
+html.ui-stage .lesson-outcome-summary-head .report-eyebrow {
+  position: absolute;
+  top: 36.3px;
+  left: 37px;
+  color: #ff6547;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0;
+}
+
+html.ui-stage .lesson-outcome-summary-head h2 {
+  position: absolute;
+  top: 58.4px;
+  left: 37px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 53px;
+  white-space: nowrap;
+}
+
+html.ui-stage .lesson-outcome-summary-head p {
+  position: absolute;
+  top: 123.2px;
+  left: 36px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 17px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+html.ui-stage .lesson-outcome-score {
+  position: absolute;
+  top: 27px;
+  right: 36px;
+}
+
+html.ui-stage .lesson-outcome-score strong { line-height: 47px; }
+
+html.ui-stage .lesson-outcome-score small {
+  margin-top: 14px;
+  color: #cddff8;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+html.ui-stage .lesson-outcome-stages {
+  position: absolute;
+  top: 178px;
+  left: 36px;
+  display: flex;
+  gap: 16px;
+  margin: 0;
+}
+
+html.ui-stage .lesson-outcome-stages li {
+  position: relative;
+  width: 222px;
+  height: 160px;
+  min-height: 0;
+  padding: 0;
+  display: block;
+  border-radius: 20px;
+  background: #22201e;
+}
+
+html.ui-stage .lesson-outcome-stage-head {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+html.ui-stage .lesson-outcome-stage-head .progress-number {
+  position: absolute;
+  top: 23px;
+  left: 21px;
+  width: 26px;
+  height: 34px;
+  margin: 0;
+  translate: none;
+  background-color: #cddff8;
+  mask-position: left top;
+  -webkit-mask-position: left top;
+}
+
+html.ui-stage .lesson-outcome-stages li:nth-child(3) .progress-number { background-color: #ff6547; }
+
+html.ui-stage .lesson-outcome-stage-head .lesson-outcome-check {
+  position: absolute;
+  top: 25px;
+  right: 17px;
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #ff6547;
+}
+
+html.ui-stage .lesson-outcome-stages li > strong {
+  position: absolute;
+  top: 71.3px;
+  left: 22px;
+  margin: 0;
+  color: #cddff8;
+  font: 700 22px/27px "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+}
+
+html.ui-stage .lesson-outcome-stages li > span {
+  position: absolute;
+  top: 107.7px;
+  left: 22px;
+  margin: 0;
+  color: #e8f1fc;
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 19px;
+  white-space: nowrap;
+}
+
+html.ui-stage .lesson-outcome-stages li > small {
+  position: absolute;
+  top: 128.5px;
+  left: 22px;
+  margin: 0;
+  padding: 0;
+  color: #8b8484;
+  font-size: 13.5px;
+  line-height: 17px;
+  white-space: nowrap;
+}
+
+html.ui-stage .lesson-outcome-notes {
+  position: absolute;
+  top: 459px;
+  left: 0;
+  width: 1008px;
+  display: flex;
+  gap: 24px;
+}
+
+html.ui-stage .lesson-outcome-notes > section {
+  position: relative;
+  width: 492px;
+  height: 392px;
+  min-height: 0;
+  padding: 0;
+  border-radius: 40px;
+}
+
+html.ui-stage .lesson-outcome-skills { background: #8b8484; }
+
+html.ui-stage .lesson-outcome-skills h2 {
+  position: absolute;
+  top: 31px;
+  left: 37px;
+  color: #cddff8;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+html.ui-stage .lesson-outcome-skills ul {
+  position: absolute;
+  top: 149px;
+  left: 36px;
+  right: 24px;
+  display: block;
+  margin: 0;
+}
+
+html.ui-stage .lesson-outcome-skills li {
+  position: relative;
+  height: 70px;
+  display: block;
+  padding-left: 41px;
+  color: #22201e;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+}
+
+html.ui-stage .lesson-outcome-skills li .lesson-outcome-check {
+  position: absolute;
+  top: -2.3px;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  color: #22201e;
+}
+
+html.ui-stage .lesson-outcome-phrase { display: block; background: #544c4c; }
+
+html.ui-stage .lesson-outcome-phrase h2 {
+  position: absolute;
+  top: 32.5px;
+  left: 39px;
+  color: #cddff8;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+  white-space: nowrap;
+}
+
+html.ui-stage .lesson-outcome-phrase .report-quote-ticket { margin: 0; min-height: 0; }
+
+html.ui-stage .lesson-outcome-phrase > small {
+  position: absolute;
+  top: 304.8px;
+  left: 36px;
+  margin: 0;
+  padding: 0;
+  color: #e8f1fc;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+html.ui-stage .lesson-outcome-right {
+  position: absolute;
+  top: 0;
+  left: 1100px;
+  width: 522px;
+  min-height: 0;
+  display: block;
+}
+
+html.ui-stage .lesson-outcome-right > h2 {
+  margin: 0;
+  padding: 11.7px 0 0 22px;
+  color: #cddff8;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 58px;
+  white-space: nowrap;
+}
+
+html.ui-stage .lesson-outcome-skill-card {
+  position: relative;
+  width: 522px;
+  height: 120px;
+  min-height: 0;
+  margin-top: 38.3px;
+  padding: 0;
+  display: block;
+  border-radius: 34px;
+  background: #544c4c;
+}
+
+html.ui-stage .lesson-outcome-skill-card strong {
+  position: absolute;
+  top: 25px;
+  left: 29px;
+  color: #cddff8;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+html.ui-stage .lesson-outcome-skill-card span {
+  position: absolute;
+  top: 53.4px;
+  left: 29px;
+  color: #e8f1fc;
+  font-size: 15px;
+  line-height: 19px;
+}
+
+html.ui-stage .lesson-outcome-dots {
+  position: absolute;
+  top: 84px;
+  left: 43px;
+  align-items: center;
+  gap: 11px;
+}
+
+html.ui-stage .lesson-outcome-dots i {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #8b8484;
+}
+
+html.ui-stage .lesson-outcome-dots i.is-filled { border-color: #ff6547; background: #ff6547; }
+
+html.ui-stage .lesson-outcome-dots i.is-new {
+  border-color: #f0e4cc;
+  background: #f0e4cc;
+  outline: 2px dashed #f0e4cc;
+  outline-offset: 2px;
+}
+
+html.ui-stage .lesson-outcome-dots i:not(.is-filled):not(.is-new) {
+  width: 18px;
+  height: 18px;
+  margin: 0 1px;
+}
+
+html.ui-stage .lesson-outcome-gain {
+  top: 81px;
+  right: 41px;
+  bottom: auto;
+  color: #f0e4cc;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+}
+
+html.ui-stage .lesson-outcome-map-note {
+  width: 522px;
+  height: 121px;
+  margin: 18px 0 0;
+  padding: 34.4px 20px 0 28px;
+  border-radius: 34px;
+  color: #22201e;
+  background: #8b8484;
+  font-size: 15.6px;
+  line-height: 21.3px;
+}
+
+html.ui-stage .lesson-outcome-map-note small {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 17px;
+}
+
+html.ui-stage .lesson-outcome-next {
+  position: absolute;
+  top: 459px;
+  left: 0;
+  width: 522px;
+  height: 150px;
+  margin: 0;
+  padding: 26.7px 20px 0 28px;
+  border: 2px solid #ff6547;
+  border-radius: 34px;
+  background: #544c4c;
+  box-shadow: 0 0 14px 2px rgba(255, 101, 71, 0.6);
+}
+
+html.ui-stage .lesson-outcome-next .report-eyebrow {
+  display: block;
+  color: #ff6547;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0;
+}
+
+html.ui-stage .lesson-outcome-next h3 {
+  margin: 13.6px 0 0 2px;
+  color: #cddff8;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+html.ui-stage .lesson-outcome-next p {
+  margin: 17.3px 0 0 1px;
+  display: flex;
+  align-items: center;
+  color: #e8f1fc;
+  font-size: 15.3px;
+  font-weight: 700;
+  line-height: 19px;
+}
+
+html.ui-stage .lesson-outcome-block-dots {
+  position: relative;
+  top: -2.5px;
+  margin-left: 65px;
+  align-items: center;
+  gap: 6px;
+}
+
+html.ui-stage .lesson-outcome-block-dots i {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid #cddff8;
+}
+
+html.ui-stage .lesson-outcome-block-dots i.is-filled {
+  width: 14px;
+  height: 14px;
+  border-color: #ff6547;
+  background: #ff6547;
+}
+
+html.ui-stage .lesson-outcome-actions {
+  position: absolute;
+  top: 634px;
+  left: 0;
+  display: grid;
+  gap: 20.7px;
+  margin: 0;
+}
+
+html.ui-stage .lesson-outcome-footer {
+  position: absolute;
+  top: 808.9px;
+  left: 23.5px;
+  right: 0;
+  margin: 0;
+}
+
+html.ui-stage .lesson-outcome-footer a {
+  color: #cddff8;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+html.ui-stage .lesson-outcome-footer small {
+  color: #8b8484;
+  font-size: 13.5px;
+  line-height: 17px;
+}
+
+html.ui-stage .lesson-outcome-notice {
+  position: absolute;
+  top: -70px;
+  left: 0;
+  width: 522px;
+}
+
+/* ---------- Полный отчёт (reference canvas 1920×2175, scrolls inside the stage) ---------- */
+
+/* Fixed children (sidebar, back-to-top) are positioned against the stage, not the window. */
+html.ui-stage .report-stage { contain: layout; }
+
+html.ui-stage .full-report-page { position: relative; overflow-x: hidden; overflow-y: auto; }
+html.ui-stage .full-report-page .report-sidebar { position: absolute; }
+html.ui-stage .full-report-page .report-main { padding-bottom: 104px; }
+
+html.ui-stage .report-full-top {
+  position: relative;
+  display: block;
+  width: 1622px;
+  height: 300px;
+}
+
+html.ui-stage .report-full-summary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1072px;
+  height: 300px;
+  min-height: 0;
+  padding: 0;
+  display: block;
+  border-radius: 40px;
+  background: #544c4c;
+}
+
+html.ui-stage .report-full-summary .report-eyebrow {
+  position: absolute;
+  top: 36px;
+  left: 37px;
+  color: #ff6547;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0;
+}
+
+html.ui-stage .report-full-summary h2 {
+  position: absolute;
+  top: 55.5px;
+  left: 37px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 40.5px;
+  font-weight: 700;
+  line-height: 50px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-full-summary p {
+  position: absolute;
+  top: 117.6px;
+  left: 37px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 18px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-full-score {
+  position: absolute;
+  top: 31px;
+  right: 22px;
+  align-items: flex-end;
+}
+
+html.ui-stage .report-full-score strong { line-height: 47px; }
+
+html.ui-stage .report-full-score small {
+  max-width: none;
+  margin-top: 14px;
+  color: #cddff8;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-full-facts {
+  position: absolute;
+  top: 184px;
+  left: 36px;
+  display: flex;
+  gap: 34px;
+}
+
+html.ui-stage .report-full-facts > div {
+  width: 315px;
+  height: 92px;
+  padding: 20.5px 0 0 25px;
+  display: block;
+  border-radius: 24px;
+  background: #22201e;
+}
+
+html.ui-stage .report-full-facts small {
+  display: block;
+  color: #8b8484;
+  font-size: 14.3px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+html.ui-stage .report-full-facts strong {
+  display: block;
+  margin-top: 7px;
+  color: #cddff8;
+  font-size: 20.4px;
+  font-weight: 600;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-full-facts > .is-accent strong { color: #ff6547; }
+
+html.ui-stage .report-full-outcome {
+  position: absolute;
+  top: 4px;
+  left: 1101px;
+  width: 522px;
+  height: 294px;
+  min-height: 0;
+  padding: 0;
+  border-radius: 28px;
+  background: #ff6547;
+}
+
+html.ui-stage .report-full-outcome::after { display: none; }
+
+html.ui-stage .report-full-outcome-copy span {
+  position: absolute;
+  top: 23px;
+  left: 30px;
+  color: #544c4c;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 37.5px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+html.ui-stage .report-full-outcome h2 {
+  position: absolute;
+  top: 115px;
+  left: 28px;
+  max-width: 230px;
+  margin: 0;
+  color: #cddff8;
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 15.9px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+html.ui-stage .report-outcome-avatar {
+  position: absolute;
+  top: 33.5px;
+  left: 267px;
+  right: auto;
+  width: 227px;
+  height: 227px;
+  translate: none;
+  transform: none;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #544c4c;
+}
+
+html.ui-stage .report-outcome-avatar svg { display: block; width: 100%; height: 100%; }
+
+html.ui-stage .report-full-outcome-note {
+  position: absolute;
+  top: 234px;
+  left: 34px;
+  color: #22201e;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+html.ui-stage .report-full-section { margin: 0; }
+
+html.ui-stage .report-full-section > h2 {
+  margin: 0;
+  padding: 0 0 0 3px;
+  color: #cddff8;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 49px;
+  letter-spacing: 0;
+}
+
+html.ui-stage .report-full-opportunities > h2 { margin-top: 57px; margin-bottom: 26px; }
+html.ui-stage .report-full-interests > h2 { margin-top: 23px; margin-bottom: 12px; }
+html.ui-stage .report-full-hints > h2 { margin-top: 23px; margin-bottom: 12px; }
+
+html.ui-stage .report-opportunities {
+  display: flex;
+  gap: 28px;
+}
+
+html.ui-stage .report-opportunity-card {
+  position: relative;
+  width: 522px;
+  height: 640px;
+  min-height: 0;
+  padding: 0;
+  display: block;
+  border-radius: 40px;
+  background: #544c4c;
+}
+
+html.ui-stage .report-opportunity-top { display: block; }
+
+html.ui-stage .report-opportunity-top > span {
+  position: absolute;
+  top: 38px;
+  left: 37px;
+  color: #ff6547;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+html.ui-stage .report-opportunity-top strong {
+  position: absolute;
+  top: 23px;
+  right: 37px;
+  display: flex;
+  align-items: flex-start;
+  color: #ff6547;
+}
+
+html.ui-stage .report-opportunity-top .progress-number {
+  width: 30px;
+  height: 41px;
+  margin: 0;
+  translate: none;
+  background-color: #ff6547;
+  mask-position: center top;
+  -webkit-mask-position: center top;
+}
+
+html.ui-stage .report-opportunity-top small {
+  margin: 24px 0 0 11px;
+  color: #cddff8;
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 20px;
+  white-space: pre;
+}
+
+html.ui-stage .report-opportunity-position {
+  position: absolute;
+  top: 78.6px;
+  left: 37px;
+  right: 30px;
+  min-height: 0;
+}
+
+html.ui-stage .report-opportunity-position small {
+  display: block;
+  color: #8b8484;
+  font-size: 14.6px;
+  line-height: 20px;
+}
+
+html.ui-stage .report-opportunity-position p {
+  margin: 2.5px 0 0;
+  color: #f0e4cc;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+html.ui-stage .report-opportunity-card .report-quote-ticket {
+  top: 164px;
+  left: 24px;
+  width: 474px;
+  height: 110px;
+  border-radius: 28px;
+}
+
+html.ui-stage .report-opportunity-card .report-quote-ticket::before,
+html.ui-stage .report-opportunity-card .report-quote-ticket::after { top: 39px; width: 28px; height: 28px; }
+
+html.ui-stage .report-opportunity-card .report-quote-ticket::before { left: -14px; }
+html.ui-stage .report-opportunity-card .report-quote-ticket::after { right: -14px; }
+
+html.ui-stage .report-opportunity-card .report-quote-ticket span { top: 14px; left: 36px; }
+html.ui-stage .report-opportunity-card .report-quote-ticket i { top: 36px; left: 30px; right: 30px; }
+
+html.ui-stage .report-opportunity-card .report-quote-ticket p {
+  top: 54.5px;
+  left: 36px;
+  right: 24px;
+  font-size: 17px;
+  line-height: 23px;
+}
+
+html.ui-stage .report-opportunity-card dl {
+  position: absolute;
+  top: 299px;
+  left: 37px;
+  right: 18px;
+  margin: 0;
+}
+
+html.ui-stage .report-opportunity-card dt {
+  color: #cddff8;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+html.ui-stage .report-opportunity-card dt:last-of-type { color: #ff6547; }
+
+html.ui-stage .report-opportunity-card dd {
+  margin: 3px 0 20px;
+  color: #e8f1fc;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+html.ui-stage .report-opportunity-card > .report-action {
+  position: absolute;
+  top: 560px;
+  left: 36px;
+  width: 377.5px;
+  height: 48px;
+  min-height: 0;
+  margin: 0;
+  padding: 0 29px 0 32px;
+  border-radius: 24px;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+html.ui-stage .report-opportunity-card .report-action .long-arrow { width: 42px; height: 20px; flex-basis: 42px; }
+
+html.ui-stage .report-interests {
+  display: flex;
+  gap: 28px;
+}
+
+html.ui-stage .report-interests > div {
+  position: relative;
+  width: 797px;
+  height: 280px;
+  min-height: 0;
+  padding: 36px 30px 0 35px;
+  border-radius: 40px;
+  background: #544c4c;
+}
+
+html.ui-stage .report-interests > div + div { color: #22201e; background: #8b8484; }
+
+html.ui-stage .report-interests h3 {
+  margin: 0 0 30px 2px;
+  color: #ff6547;
+  font-size: 14.3px;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+html.ui-stage .report-interests > div + div h3 { color: #22201e; }
+
+html.ui-stage .report-interests p {
+  height: 82px;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  color: #cddff8;
+  font-size: 20.1px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+html.ui-stage .report-interests > div + div p { color: #22201e; gap: 16px; padding-left: 3px; }
+
+html.ui-stage .report-interests p small {
+  display: block;
+  margin-top: 5px;
+  color: #e8f1fc;
+  font-size: 14.7px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+html.ui-stage .report-interests > div + div p small { color: #22201e; }
+
+html.ui-stage .report-interest-icon { flex: 0 0 30px; width: 30px; height: 30px; color: #ff6547; }
+html.ui-stage .report-interest-icon.is-hypothesis { flex-basis: 28px; width: 28px; height: 28px; color: #f0e4cc; }
+
+html.ui-stage .report-full-bottom {
+  position: relative;
+  display: block;
+  width: 1622px;
+  height: 434px;
+  margin-top: 31px;
+}
+
+html.ui-stage .report-full-bottom > section {
+  position: absolute;
+  top: 0;
+  width: 522px;
+  min-height: 0;
+  padding: 0;
+  display: block;
+  border: 0;
+  border-radius: 40px;
+}
+
+html.ui-stage .report-meeting-success {
+  left: 0;
+  height: 432px;
+  color: #22201e;
+  background: #8b8484;
+}
+
+html.ui-stage .report-full-bottom h2 {
+  position: absolute;
+  top: 26.5px;
+  left: 37px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 37.4px;
+  font-weight: 700;
+  line-height: 45px;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-meeting-outcome-title {
+  position: absolute;
+  top: 94.5px;
+  left: 36px;
+  width: 340px;
+  margin: 0;
+  color: #22201e;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+html.ui-stage .report-meeting-conditions-title {
+  position: absolute;
+  top: 206px;
+  left: 36px;
+  color: #22201e;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+html.ui-stage .report-meeting-conditions {
+  position: absolute;
+  top: 240px;
+  left: 37px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html.ui-stage .report-meeting-conditions li {
+  position: relative;
+  height: 32px;
+  padding-left: 22px;
+  color: #22201e;
+  font-size: 17px;
+  line-height: 22px;
+}
+
+html.ui-stage .report-meeting-conditions li::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22201e;
+}
+
+html.ui-stage .report-meeting-success > small {
+  position: absolute;
+  top: 384px;
+  left: 37px;
+  margin: 0;
+  color: #22201e;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+html.ui-stage .report-key-moment {
+  top: -2.3px !important;
+  left: 550px;
+  height: 434px;
+  color: #cddff8;
+  background: #544c4c;
+}
+
+html.ui-stage .report-key-moment h2 { top: 29px; left: 52px; font-size: 37.6px; }
+
+html.ui-stage .report-key-moment .report-quote-ticket {
+  top: 90px;
+  left: 38px;
+  width: 446px;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+  border-radius: 28px;
+}
+
+html.ui-stage .report-key-moment .report-quote-ticket::before,
+html.ui-stage .report-key-moment .report-quote-ticket::after { top: 52px; width: 30px; height: 30px; }
+
+html.ui-stage .report-key-moment .report-quote-ticket::before { left: -15px; }
+html.ui-stage .report-key-moment .report-quote-ticket::after { right: -15px; }
+
+html.ui-stage .report-key-moment .report-quote-ticket span { top: 20px; left: 38px; }
+html.ui-stage .report-key-moment .report-quote-ticket i { top: 42px; left: 32px; right: 32px; }
+
+html.ui-stage .report-key-moment .report-quote-ticket p {
+  top: 72px;
+  left: 38px;
+  right: 60px;
+  font-size: 17px;
+  line-height: 23px;
+}
+
+html.ui-stage .report-key-moment .report-quote-ticket p.report-key-moment-response {
+  top: 132px;
+  right: 50px;
+  font-size: 15px;
+  line-height: 21px;
+}
+
+html.ui-stage .report-key-moment-response strong { font-weight: 700; }
+
+html.ui-stage .report-key-moment-guidance {
+  position: absolute;
+  top: 308px;
+  left: 52px;
+  right: 60px;
+  margin: 0;
+  color: #e8f1fc;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+html.ui-stage .report-key-moment > .report-action {
+  position: absolute;
+  top: 370.6px;
+  left: 51px;
+  width: 377.5px;
+  height: 44px;
+  min-height: 0;
+  margin: 0;
+  padding: 0 29px 0 32px;
+  border-radius: 22px;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+html.ui-stage .report-next-lesson {
+  left: 1100px;
+  height: 340px;
+  color: #cddff8;
+  background: #544c4c;
+  border: 2px solid #ff6547 !important;
+  box-shadow: 0 0 12px 1px rgba(255, 101, 71, 0.55);
+}
+
+html.ui-stage .report-next-lesson .report-eyebrow {
+  position: absolute;
+  top: 38px;
+  left: 35px;
+  color: #ff6547;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0;
+}
+
+html.ui-stage .report-next-lesson h2 {
+  top: 79px;
+  left: 36px;
+  width: 440px;
+  font-size: 40px;
+  line-height: 43px;
+  white-space: normal;
+}
+
+html.ui-stage .report-next-lesson p {
+  position: absolute;
+  top: 223.5px;
+  left: 35px;
+  margin: 0;
+  color: #e8f1fc;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+html.ui-stage .report-next-lesson p.report-next-lesson-label {
+  top: 204px;
+  color: #cddff8;
+  font-size: 18.5px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+html.ui-stage .report-next-lesson p:last-child { top: 238px; }
+
+html.ui-stage .report-next-lesson-action {
+  position: absolute;
+  top: 372px;
+  left: 1100px;
+}
+
+html.ui-stage .report-back-to-top {
+  position: fixed;
+  top: 900px;
+  left: 1833px;
+  right: auto;
+  bottom: auto;
+  width: 88px;
+  height: 88px;
+}
+
+/* ---------- Переиграть ключевой момент ---------- */
+
+/* The page sits inside .report-stage, which provides the zoom and the 1920×1080 canvas. */
+html.ui-stage .replay-page {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  min-height: 0;
+  padding: 0 120px;
+  overflow: hidden;
+  background: none;
+}
+
+html.ui-stage .replay-grid {
+  position: relative;
+  display: block;
+  width: 1680px;
+  max-width: none;
+  height: 815px;
+  margin: 12px 0 0;
+}
+
+html.ui-stage .replay-history {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 560px;
+  height: 815px;
+  min-height: 0;
+  padding: 0;
+  border-radius: 40px;
+  background: #544c4c;
+}
+
+html.ui-stage .replay-history h2 {
+  position: absolute;
+  top: 26px;
+  left: 28px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+}
+
+html.ui-stage .replay-history > p {
+  position: absolute;
+  top: 61.5px;
+  left: 29px;
+  margin: 0;
+  color: #e8f1fc;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+html.ui-stage .replay-history-list {
+  position: absolute;
+  top: 108px;
+  left: 28px;
+  width: 504px;
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+html.ui-stage .replay-history-list > div {
+  position: relative;
+  min-height: 72px;
+  padding: 14px 18px 14px;
+  border-radius: 20px;
+  color: #cddff8;
+  background: #22201e;
+}
+
+html.ui-stage .replay-history-list > div.is-user { color: #544c4c; background: #cddff8; }
+
+html.ui-stage .replay-history-list > div.is-key {
+  border: 3px solid #ff6547;
+  padding: 11px 15px 11px;
+  box-shadow: 0 0 10px 1px rgba(255, 101, 71, 0.7);
+}
+
+html.ui-stage .replay-history-list > div.is-future { color: #544c4c; background: #8b8c98; }
+
+html.ui-stage .replay-history-list span {
+  display: block;
+  color: #ff6547;
+  font-size: 14.4px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+html.ui-stage .replay-history-list .is-user span,
+html.ui-stage .replay-history-list .is-future span { color: #544c4c; }
+
+html.ui-stage .replay-history-list p {
+  margin: 4px 0 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+html.ui-stage .replay-history-list b {
+  position: absolute;
+  top: -19px;
+  right: 13px;
+  padding: 0;
+  width: 143.5px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  color: #544c4c;
+  background: #ff6547;
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12.7px;
+  font-weight: 800;
+  line-height: 16px;
+}
+
+html.ui-stage .replay-history-list em {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  color: #544c4c;
+  font-size: 13.5px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+html.ui-stage .replay-history-note {
+  position: absolute;
+  top: 584px;
+  left: 28px;
+  width: 520px;
+  color: #8b8484;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+html.ui-stage .replay-content {
+  position: absolute;
+  top: 0;
+  left: 620px;
+  width: 1060px;
+}
+
+html.ui-stage .replay-content > .report-eyebrow {
+  position: absolute;
+  top: 6px;
+  left: 1px;
+  color: #ff6547;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+html.ui-stage .replay-content > h1 {
+  position: absolute;
+  top: 29px;
+  left: 1px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 63px;
+  white-space: nowrap;
+}
+
+html.ui-stage .replay-quote {
+  position: absolute;
+  top: 124px;
+  left: 0;
+  width: 1060px;
+  height: 168px;
+  min-height: 0;
+  padding: 0;
+  border-radius: 28px;
+  color: #544c4c;
+  background: #f0e4cc;
+}
+
+html.ui-stage .replay-quote::before,
+html.ui-stage .replay-quote::after {
+  top: 58px;
+  width: 34px;
+  height: 34px;
+  background: #22201e;
+}
+
+html.ui-stage .replay-quote::before { left: -17px; }
+html.ui-stage .replay-quote::after { right: -17px; }
+
+html.ui-stage .replay-quote span {
+  position: absolute;
+  top: 24px;
+  left: 40px;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14.6px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+html.ui-stage .replay-quote i {
+  position: absolute;
+  top: 55px;
+  left: 36px;
+  right: 36px;
+  margin: 0;
+  border-top: 7px dotted #22201e;
+}
+
+html.ui-stage .replay-quote p {
+  position: absolute;
+  top: 80px;
+  left: 40px;
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+html.ui-stage .replay-quote .replay-original-answer {
+  top: 128px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+html.ui-stage .replay-guidance {
+  position: absolute;
+  top: 308px;
+  left: 0;
+  width: 1060px;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  border-radius: 28px;
+  background: #544c4c;
+}
+
+html.ui-stage .replay-guidance strong {
+  position: absolute;
+  top: 18.5px;
+  left: 33px;
+  color: #ff6547;
+  font-family: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  font-size: 22.5px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+html.ui-stage .replay-guidance p {
+  position: absolute;
+  top: 58.5px;
+  left: 33px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 20.1px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+html.ui-stage .replay-explanation {
+  position: absolute;
+  top: 430px;
+  left: 5px;
+  display: grid;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html.ui-stage .replay-explanation li {
+  position: relative;
+  padding-left: 24.5px;
+  color: #e8f1fc;
+  font-size: 17px;
+  line-height: 23px;
+}
+
+html.ui-stage .replay-explanation li::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cddff8;
+}
+
+html.ui-stage .replay-comparison {
+  position: absolute;
+  top: 562px;
+  left: 0;
+  width: 1060px;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #8b8484;
+  border-radius: 28px;
+  background: #22201e;
+}
+
+html.ui-stage .replay-comparison h2 {
+  position: absolute;
+  top: 19.5px;
+  left: 31px;
+  margin: 0;
+  color: #cddff8;
+  font-size: 22.8px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+html.ui-stage .replay-comparison div {
+  position: absolute;
+  top: 71.5px;
+  left: 31px;
+  display: grid;
+  grid-template-columns: 332px 332px 332px;
+  gap: 0;
+  margin: 0;
+}
+
+html.ui-stage .replay-comparison span {
+  display: block;
+  color: #8b8484;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+html.ui-stage .replay-comparison strong {
+  display: block;
+  width: 290px;
+  margin-top: 5px;
+  color: #cddff8;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+html.ui-stage .replay-comparison span + span strong { font-weight: 600; }
+
+html.ui-stage .replay-actions {
+  position: absolute;
+  top: 755px;
+  left: 0;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+}
+
+html.ui-stage .replay-actions .report-action { width: 420px; min-width: 0; }
+html.ui-stage .replay-actions .report-action + .report-action { width: 300px; }
+
+/* ---------- Long live content ----------
+ * Report texts come from the model and can be longer than the reference copy.
+ * Cards keep the reference geometry: extra lines are clamped (full text is in the title attribute).
+ */
+
+html.ui-stage .report-quote-ticket p,
+html.ui-stage .report-improvement > p,
+html.ui-stage .report-support p,
+html.ui-stage .report-opportunity-card dd,
+html.ui-stage .report-opportunity-position p,
+html.ui-stage .report-outcome p,
+html.ui-stage .report-full-outcome h2,
+html.ui-stage .report-meeting-outcome-title,
+html.ui-stage .report-key-moment-guidance,
+html.ui-stage .report-next-lesson p:last-child,
+html.ui-stage .report-interests p > span,
+html.ui-stage .replay-quote p,
+html.ui-stage .replay-guidance p,
+html.ui-stage .replay-comparison strong,
+html.ui-stage .lesson-outcome-next p,
+html.ui-stage .report-note-card > small {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+html.ui-stage .report-quote-ticket p,
+html.ui-stage .report-improvement > p,
+html.ui-stage .report-support p,
+html.ui-stage .report-meeting-outcome-title { -webkit-line-clamp: 3; }
+
+html.ui-stage .report-full-outcome h2 { -webkit-line-clamp: 4; }
+html.ui-stage .report-opportunity-card .report-quote-ticket p,
+html.ui-stage .report-key-moment .report-quote-ticket p,
+html.ui-stage .report-key-moment-guidance { -webkit-line-clamp: 2; }
+
+html.ui-stage .replay-quote p,
+html.ui-stage .replay-guidance p,
+html.ui-stage .lesson-outcome-next p,
+html.ui-stage .report-next-lesson p:last-child { -webkit-line-clamp: 1; }
+
+html.ui-stage .report-interests p > span { -webkit-line-clamp: 3; }
+html.ui-stage .report-interests p small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Single-line cells */
+html.ui-stage .report-full-facts strong,
+html.ui-stage .lesson-outcome-stages li > span,
+html.ui-stage .lesson-outcome-stages li > small,
+html.ui-stage .report-meeting-conditions li,
+html.ui-stage .report-evidence-pill,
+html.ui-stage .report-metric > small,
+html.ui-stage .replay-history-list em {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html.ui-stage .report-full-facts strong { max-width: 270px; }
+html.ui-stage .lesson-outcome-stages li > span,
+html.ui-stage .lesson-outcome-stages li > small { right: 14px; }
+html.ui-stage .report-meeting-conditions { right: 30px; }
+html.ui-stage .report-meeting-conditions li:nth-child(n + 4) { display: none; }
+html.ui-stage .report-evidence-pill { max-width: 420px; }
+html.ui-stage .report-opportunity-position p { -webkit-line-clamp: 2; }
+
+/* Conversation history of the replay screen: the note follows the list instead of a fixed spot */
+html.ui-stage .replay-history {
+  display: flex;
+  flex-direction: column;
+  padding: 108px 28px 28px;
+}
+
+html.ui-stage .replay-history-list {
+  position: static;
+  width: auto;
+  min-height: 0;
+  flex: 0 1 auto;
+  overflow-y: auto;
+  margin-right: -10px;
+  padding: 20px 10px 4px 0;
+  margin-top: -20px;
+  scrollbar-width: thin;
+  scrollbar-color: #cddff8 transparent;
+}
+
+html.ui-stage .replay-history-list p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+html.ui-stage .replay-history-list > div.is-future p { -webkit-line-clamp: 1; }
+html.ui-stage .replay-history-list > div.is-future span { padding-right: 200px; }
+
+html.ui-stage .replay-history-note {
+  position: static;
+  flex: 0 0 auto;
+  width: auto;
+  margin-top: 16px;
+}
