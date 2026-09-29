@@ -2915,6 +2915,14 @@ button {
   line-height: 1;
 }
 
+/* Hand-drawn answer letter (components/answer-letter.tsx) in place of a text letter:
+   0.68em makes it as tall as the capital letter it replaces. */
+.answer-letter {
+  display: block;
+  font-size: 0.68em;
+  overflow: visible;
+}
+
 .theory-card-heading {
   display: flex;
   flex-direction: column;

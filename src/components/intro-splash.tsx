@@ -89,9 +89,10 @@ const TOTAL_MS = (HANDSHAKE_ITEM.transition.duration + HANDSHAKE_ITEM.hold + LOG
 
 interface IntroSplashProps {
   onDone: () => void;
+  className?: string;
 }
 
-export function IntroSplash({ onDone }: IntroSplashProps) {
+export function IntroSplash({ onDone, className }: IntroSplashProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [leaving, setLeaving] = useState(false);
 
@@ -148,7 +149,7 @@ export function IntroSplash({ onDone }: IntroSplashProps) {
   }, []);
 
   return (
-    <div className={`intro-splash${leaving ? " is-leaving" : ""}`} aria-hidden="true">
+    <div className={`intro-splash${leaving ? " is-leaving" : ""}${className ? ` ${className}` : ""}`} aria-hidden="true">
       <canvas ref={canvasRef} className="intro-splash-canvas" />
     </div>
   );

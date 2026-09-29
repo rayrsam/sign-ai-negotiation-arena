@@ -1,3 +1,4 @@
+import { AnswerLetter } from "@/components/answer-letter";
 import { verdictLabel } from "@/data/theory-content";
 import { cn } from "@/lib/utils";
 import type { TheoryOption } from "@/types/theory";
@@ -31,7 +32,7 @@ export function TheoryAnswerCards({ options, selectedIndex, committedIndex, answ
             disabled={answered}
             aria-pressed={isSelected || isCommitted}
           >
-            <span className="theory-card-letter">{option.letter}</span>
+            <span className="theory-card-letter"><AnswerLetter letter={option.letter} /></span>
             <span className="theory-card-heading">
               <strong>Вариант</strong>
               <small>{badge}</small>

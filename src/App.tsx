@@ -7,6 +7,7 @@ import { FullReportScreen } from "@/screens/full-report-screen";
 import { ReplayScreen } from "@/screens/replay-screen";
 import { TheoryScreen } from "@/screens/theory-screen";
 import { LessonOutcomeScreen } from "@/screens/lesson-outcome-screen";
+import { LoginScreen } from "@/screens/login-screen";
 import { TableApp } from "@/table/table-app";
 import { tableScreenOf } from "@/table/lib/router";
 import { FreeApp } from "@/free/free-app";
@@ -23,6 +24,7 @@ export default function App() {
   const freeScreen = freeScreenOf(screen);
   if (freeScreen) return <FreeApp screen={freeScreen} />;
 
+  if (screen === "login") return <LoginScreen />;
   if (screen === "meeting") return <MeetingScreen />;
   if (screen === "brief") return <BriefScreen />;
   if (screen === "lessons") return <LessonsScreen />;
@@ -33,6 +35,6 @@ export default function App() {
   if (screen === "lesson-outcome") return <LessonOutcomeScreen />;
   if (screen === "intro") return <PracticeIntroScreen />;
 
-  window.location.replace("?screen=lessons");
+  window.location.replace("?screen=login");
   return null;
 }

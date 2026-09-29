@@ -1,3 +1,4 @@
+import { AnswerLetter } from "@/components/answer-letter";
 import { ProgressNumber } from "@/components/progress-number";
 import { verdictLabel } from "@/data/theory-content";
 import { ReportAction } from "@/components/report/report-action";
@@ -29,7 +30,7 @@ function ResultTile({ index, result }: { index: number; result: TheoryQuestionRe
   return (
     <div className={`report-score-tile${isGood ? "" : " is-accent"}`}>
       <span>Ситуация {index + 1}</span>
-      <strong>{result.answerLetter}</strong>
+      <strong><AnswerLetter letter={result.answerLetter} /></strong>
       <div className="report-score-dots" aria-label={`Попытка ${result.attempts} из 2`}>
         {[1, 2].map((dot) => <i key={dot} className={dot <= result.attempts ? "is-filled" : ""} />)}
       </div>

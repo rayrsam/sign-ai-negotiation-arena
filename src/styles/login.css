@@ -1,0 +1,252 @@
+/*
+ * Sign-in screen: the 1920×1080 mockup is drawn on its own canvas and scaled to the window as a whole
+ * (--stage-zoom, src/lib/stage.ts). Coordinates below are the mockup's; texts are placed so that
+ * the glyphs land on the mockup's glyph boxes.
+ */
+.login-viewport {
+  --login-zoom: var(--stage-zoom, 1);
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background-color: #22201e;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='41.5' viewBox='0 0 24 41.5'%3E%3Cg fill='none' stroke='white' stroke-opacity='0.043' stroke-width='3.9'%3E%3Ccircle cx='12' cy='8' r='6.3'/%3E%3Ccircle cx='0' cy='28.75' r='6.3'/%3E%3Ccircle cx='24' cy='28.75' r='6.3'/%3E%3Ccircle cx='12' cy='49.5' r='6.3'/%3E%3Ccircle cx='12' cy='-33.5' r='6.3'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: calc(24px * var(--login-zoom)) calc(41.5px * var(--login-zoom));
+  /* The pattern starts at the canvas corner, as in the mockup. */
+  background-position: calc(50vw - 960px * var(--login-zoom)) calc(50vh - 540px * var(--login-zoom));
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.login-stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1080px;
+  transform: translate(-50%, -50%) scale(var(--login-zoom));
+}
+
+.login-stage > *,
+.login-card > * {
+  position: absolute;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.login-brand {
+  left: 100px;
+  top: 30px;
+  width: 210px;
+  height: 100px;
+  user-select: none;
+}
+
+.login-title {
+  left: 120.5px;
+  top: 362.5px;
+  color: #cddff8;
+  font: 700 91.5px/87.8px "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+}
+
+.login-title span {
+  color: #ff6547;
+}
+
+.login-lead {
+  left: 119.9px;
+  top: 594px;
+  color: #e8f1fc;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+/* ---------- profile card ---------- */
+
+.login-card {
+  left: 1114px;
+  top: 130px;
+  width: 686px;
+  height: 820px;
+  border-radius: 28px;
+  background: #544c4c;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.login-avatar {
+  left: 46px;
+  top: 42px;
+  width: 148px;
+  height: 148px;
+  user-select: none;
+}
+
+.login-kicker {
+  left: 214.85px;
+  top: 84.7px;
+  color: #8b8484;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+.login-name {
+  left: 215px;
+  top: 110.55px;
+  color: #cddff8;
+  font: 700 32px/32px "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+}
+
+.login-email {
+  left: 215px;
+  top: 145.95px;
+  color: #8b8484;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.login-divider {
+  left: 56px;
+  top: 214.07px;
+  width: 574px;
+  height: 2.33px;
+  border-radius: 1px;
+  background: #8b8484;
+  opacity: 0.6;
+}
+
+.login-welcome {
+  left: 56.4px;
+  top: 297.5px;
+  color: #cddff8;
+  font: 700 47.2px/47.2px "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+}
+
+.login-prompt {
+  left: 56.1px;
+  top: 363.8px;
+  color: #e8f1fc;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.login-continue,
+.login-switch {
+  left: 56px;
+  width: 574px;
+  height: 60px;
+  padding: 0;
+  border-radius: 30px;
+  color: #cddff8;
+  font: 700 22px/22px "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+}
+
+.login-continue {
+  top: 457.613px;
+  border: 0;
+  background: #ff6547;
+  box-shadow: 0 0 12px #ff6547;
+  transition: filter 0.15s;
+}
+
+.login-continue:not(:disabled):hover {
+  filter: brightness(1.06);
+}
+
+.login-continue:disabled {
+  cursor: default;
+}
+
+.login-continue:focus-visible {
+  outline: 2px solid #cddff8;
+  outline-offset: 4px;
+}
+
+.login-continue-label {
+  position: absolute;
+  left: 27.5px;
+  top: 19.5px;
+}
+
+.login-continue-arrow {
+  position: absolute;
+  left: 461.6px;
+  top: 11.39px;
+  width: 85.2px;
+  height: 37.3px;
+}
+
+.login-or-line {
+  left: 56px;
+  top: 557.938px;
+  width: 250px;
+  height: 2px;
+  border-radius: 1px;
+  background: #8b8484;
+  opacity: 0.6;
+}
+
+.login-or-line.is-right {
+  left: 380px;
+}
+
+.login-or {
+  left: 0;
+  width: 100%;
+  top: 550px;
+  color: #e8f1fc;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.login-switch {
+  top: 591.938px;
+  border: 2px solid #cddff8;
+  background: transparent;
+  font-size: 23.4px;
+  font-weight: 500;
+  line-height: 23.4px;
+  letter-spacing: 0.2px;
+}
+
+/* Dimmed like the links to lessons that are not available yet (.report-action:disabled). */
+.login-switch:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.login-switch-label {
+  position: absolute;
+  left: -4px;
+  right: 0;
+  top: 16.76px;
+  text-align: center;
+}
+
+.login-footnote {
+  left: 0;
+  width: 100%;
+  top: 744.9px;
+  color: #8b8484;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+}
+
+/* ---------- transition to the lessons ---------- */
+
+.login-dots {
+  animation: login-dots-in 300ms ease;
+}
+
+/* The screen goes away under the animation, so its fade-out reveals only the background. */
+.login-viewport.is-entering .login-stage {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+@keyframes login-dots-in {
+  from {
+    opacity: 0;
+  }
+}

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { AnswerLetter } from "@/components/answer-letter";
 import { ProgressNumber } from "@/components/progress-number";
 import { Button } from "@/components/ui/button";
 
@@ -67,14 +68,14 @@ export function TheoryIntroDialog({ open, locked, onStart, onBack }: TheoryIntro
         <div className="theory-intro-preview" aria-hidden="true">
           <div className="theory-cards theory-intro-cards">
             <div className="theory-card theory-card-0">
-              <span className="theory-card-letter">A</span>
+              <span className="theory-card-letter"><AnswerLetter letter="A" /></span>
             </div>
             <div className="theory-card theory-card-1 is-active">
-              <span className="theory-card-letter">B</span>
+              <span className="theory-card-letter"><AnswerLetter letter="B" /></span>
               <span className="theory-card-divider" />
             </div>
             <div className="theory-card theory-card-2">
-              <span className="theory-card-letter">C</span>
+              <span className="theory-card-letter"><AnswerLetter letter="C" /></span>
             </div>
           </div>
         </div>
