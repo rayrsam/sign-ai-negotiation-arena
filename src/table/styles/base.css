@@ -1,0 +1,111 @@
+/* Design reference: 1920×1080. Every screen is laid out on that canvas and scaled as a whole. */
+:root {
+  --bg: #22201e;
+  --card: #544c4c;
+  --muted: #8b8484;
+  --light: #cddff8;
+  --lighter: #e8f1fc;
+  --accent: #ff6547;
+  --cream: #f2e5cd;
+  --silver: #d9d9d9;
+  --display: "Montserrat Alternates", ui-sans-serif, system-ui, sans-serif;
+  --text: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  --glow: 0 0 10px #ff6547;
+  --glow-light: 0 0 9px #cddff8;
+  --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='41.5' viewBox='0 0 24 41.5'%3E%3Cg fill='none' stroke='white' stroke-opacity='0.043' stroke-width='3.9'%3E%3Ccircle cx='12' cy='8' r='6.3'/%3E%3Ccircle cx='0' cy='28.75' r='6.3'/%3E%3Ccircle cx='24' cy='28.75' r='6.3'/%3E%3Ccircle cx='12' cy='49.5' r='6.3'/%3E%3Ccircle cx='12' cy='-33.5' r='6.3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+/* Element-level base of the mini-game applies only while it is shown (html.table-module, see table-app.tsx),
+   so it does not restyle the lesson screens. :where() keeps the original element-only specificity. */
+:where(html.table-module) body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--light);
+  font-family: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+:where(html.table-module) :is(button, input, textarea, select) { font: inherit; color: inherit; }
+:where(html.table-module) button { cursor: pointer; background: none; border: 0; padding: 0; }
+:where(html.table-module) button:disabled { cursor: default; }
+:where(html.table-module) :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- stage ---------- */
+.viewport {
+  position: fixed;
+  inset: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--bg);
+  background-image: var(--pattern);
+  background-size: calc(24px * var(--s)) calc(41.5px * var(--s));
+  background-position: var(--x) var(--y);
+}
+.viewport.is-fixed { overflow: hidden; }
+.stage-spacer { position: relative; }
+.stage {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 1920px;
+  transform: scale(var(--s));
+  transform-origin: 0 0;
+  background-color: var(--bg);
+  background-image: var(--pattern);
+  overflow: hidden;
+}
+.abs { position: absolute; }
+.asset { position: absolute; display: block; pointer-events: none; user-select: none; }
+
+/* ---------- panels ---------- */
+.panel { position: absolute; background: var(--card); border-radius: 28px; }
+
+/* ---------- pill buttons ---------- */
+.pill {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-family: var(--display);
+  white-space: nowrap;
+  transition: filter 0.15s, box-shadow 0.15s, opacity 0.15s, background 0.15s;
+}
+.pill:not(:disabled):hover { filter: brightness(1.06); }
+.pill-outline { border: 3px solid var(--light); color: var(--light); font-size: 24px; font-weight: 700; }
+.pill-outline.is-pressed { background: var(--light); color: var(--card); }
+.pill-cta {
+  justify-content: space-between;
+  padding: 0 29px 0 32px;
+  background: var(--light);
+  border: 2px solid var(--accent);
+  box-shadow: var(--glow);
+  color: var(--card);
+  font-size: 26px;
+  font-weight: 700;
+}
+.pill-cta.orange { background: var(--accent); border-color: var(--light); box-shadow: var(--glow-light); color: var(--card); }
+.pill-cta.dark { background: var(--card); border-color: var(--light); box-shadow: var(--glow-light); color: var(--light); }
+.pill-cta.thin { font-weight: 400; }
+.pill-cta:disabled { opacity: 0.45; }
+.arrow-icon { flex: none; }
+
+/* ---------- modal ---------- */
+.modal-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fade-in 0.18s ease-out;
+}
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes pop-in { from { opacity: 0; transform: translateY(8px) scale(0.99); } }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.center-note { position: absolute; left: 0; right: 0; top: 500px; margin: 0; color: var(--light); font-family: var(--display); font-size: 28px; text-align: center; }

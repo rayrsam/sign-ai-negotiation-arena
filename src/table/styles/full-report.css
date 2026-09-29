@@ -1,0 +1,97 @@
+/* ===== T19 · Полный отчёт (1920×2620) ===== */
+.fr-pending { left: 208px; top: 172px; width: 1008px; height: 330px; }
+.fr-pending h2 { position: absolute; left: 40px; top: 40px; margin: 0; color: var(--light); font-family: var(--display); font-size: 36px; font-weight: 700; }
+.fr-pending p { position: absolute; left: 40px; top: 110px; width: 900px; margin: 0; color: var(--lighter); font-family: var(--text); font-size: 18px; line-height: 26px; }
+.fr-pending button { position: absolute; left: 40px; top: 220px; color: var(--accent); font-family: var(--display); font-size: 20px; font-weight: 700; }
+.fr-progress { position: absolute; left: 40px; top: 230px; width: 900px; height: 8px; overflow: hidden; border-radius: 4px; background: var(--bg); }
+.fr-progress i { position: absolute; left: -40%; width: 40%; height: 100%; border-radius: 4px; background: var(--accent); animation: fr-progress 1.4s ease-in-out infinite; }
+@keyframes fr-progress { to { left: 100%; } }
+
+.fr-kicker { position: absolute; left: 37.8px; top: 23px; margin: 0; color: var(--accent); font-family: var(--display); font-size: 24.2px; font-weight: 800; line-height: 32px; text-transform: uppercase; white-space: nowrap; }
+.fr-settings, .fr-final { top: 172px; width: 492px; height: 330px; }
+.fr-settings { left: 208px; }
+.fr-final { left: 724px; }
+.fr-settings dl, .fr-final dl { position: absolute; left: 37px; margin: 0; display: grid; grid-template-columns: 115px auto; }
+.fr-settings dl { top: 79px; row-gap: 17px; }
+.fr-final dl { top: 191px; grid-template-columns: 111px auto; row-gap: 13px; }
+.fr-settings dt, .fr-final dt { color: var(--muted); font-family: var(--text); font-size: 15px; font-weight: 700; line-height: 21px; }
+.fr-settings dd, .fr-final dd { margin: 0; color: var(--light); font-family: var(--text); font-size: 15.4px; font-weight: 500; line-height: 21px; white-space: nowrap; }
+.fr-goal { position: absolute; left: 37px; top: 284px; margin: 0; color: var(--lighter); font-family: var(--text); font-size: 14.5px; font-weight: 700; line-height: 20px; white-space: nowrap; }
+.fr-final-sum { position: absolute; left: 36.3px; top: 73.4px; display: flex; align-items: flex-end; gap: 8px; }
+.fr-final-sum small { margin-bottom: -2px; color: var(--light); font-family: var(--display); font-size: 20px; font-weight: 700; }
+.fr-formula { position: absolute; left: 36.6px; top: 143px; margin: 0; color: var(--lighter); font-family: var(--text); font-size: 15.5px; font-weight: 700; line-height: 20px; white-space: nowrap; }
+
+.fr-backup { left: 1240px; top: 172px; width: 590px; height: 330px; background: var(--muted); }
+.fr-backup .fr-kicker { left: 36.6px; color: var(--light); font-size: 23.2px; }
+.fr-backup ul { position: absolute; left: 37px; top: 79px; width: 540px; margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 270px 270px; row-gap: 18px; }
+.fr-backup li { display: flex; align-items: center; gap: 9.8px; height: 22px; color: var(--bg); font-family: var(--text); font-size: 14.7px; font-weight: 700; white-space: nowrap; }
+.fr-backup li.is-bad { color: #3d2a26; }
+.fr-backup p { position: absolute; left: 36.2px; top: 213px; width: 540px; margin: 0; color: var(--bg); font-family: var(--text); font-size: 15px; font-weight: 500; line-height: 20.1px; }
+
+.fr-title { position: absolute; left: 209.5px; margin: 0; color: var(--light); font-family: var(--display); font-size: 40px; font-weight: 700; line-height: 48px; white-space: nowrap; }
+.fr-scale-note { position: absolute; right: 90px; top: 551px; margin: 0; color: var(--lighter); font-family: var(--text); font-size: 15px; font-weight: 700; line-height: 20px; }
+.fr-anchor { top: 602px; width: 311.6px; height: 190px; }
+.fr-anchor-number { position: absolute; left: 24.8px; top: 24.7px; }
+.fr-anchor p { position: absolute; left: 25px; top: 93px; right: 22px; margin: 0; color: var(--lighter); font-family: var(--text); font-size: 15.5px; font-weight: 500; line-height: 23.4px; }
+.fr-anchor.is-current { background: var(--light); box-shadow: inset 0 0 0 3px var(--accent), 0 0 16px rgba(255, 101, 71, 0.75); }
+.fr-anchor.is-current p { color: var(--card); }
+.fr-anchor-tag { position: absolute; right: 24px; top: 37px; color: var(--card); font-family: var(--text); font-size: 14.2px; font-weight: 700; line-height: 18px; }
+.fr-missing { position: absolute; left: 208.2px; top: 816px; margin: 0; color: var(--cream); font-family: var(--text); font-size: 16px; font-weight: 700; line-height: 20px; white-space: nowrap; }
+
+.fr-timeline { left: 208px; top: 942px; width: 1622px; height: 300px; }
+.fr-timeline-line { position: absolute; left: 62px; top: 148.5px; width: 1498px; height: 3px; border-radius: 2px; background: var(--muted); }
+.fr-event { position: absolute; top: 0; width: 0; }
+.fr-marker { position: absolute; left: -11px; top: 139px; width: 22px; height: 22px; border-radius: 50%; }
+.fr-marker.is-start { border-radius: 5px; background: var(--cream); }
+.fr-marker.is-light { background: var(--light); }
+.fr-marker.is-accent { background: var(--accent); }
+.fr-marker.is-diamond { left: -10px; top: 140px; width: 20px; height: 20px; border-radius: 3px; background: var(--light); transform: rotate(45deg); }
+.fr-marker.is-ring { border: 4px solid var(--cream); background: var(--bg); }
+.fr-marker.is-check { left: -12px; top: 138px; width: 24px; height: 24px; }
+.fr-event span, .fr-event strong, .fr-event small { position: absolute; left: 0; transform: translateX(-50%); text-align: center; white-space: nowrap; }
+.fr-event-kicker { color: var(--muted); font-family: var(--display); font-size: 14.1px; font-weight: 700; line-height: 18px; }
+.fr-event strong { color: var(--light); font-family: var(--text); font-size: 16px; font-weight: 700; line-height: 22px; }
+.fr-event small { color: var(--lighter); font-family: var(--text); font-size: 14px; font-weight: 500; line-height: 18px; }
+.fr-event.is-above .fr-event-kicker { top: 64px; }
+.fr-event.is-above strong { top: 84px; }
+.fr-event.is-above small { top: 106px; }
+.fr-event.is-below .fr-event-kicker { top: 184px; }
+.fr-event.is-below strong { top: 204px; }
+.fr-event.is-below small { top: 226px; }
+
+.fr-moves { left: 208px; top: 1338px; width: 1622px; height: 420px; }
+.fr-moves-head span { position: absolute; top: 34px; color: var(--muted); font-family: var(--text); font-size: 13.6px; font-weight: 700; line-height: 18px; }
+.fr-move { position: absolute; left: 24px; width: 1574px; height: 44px; border-radius: 12px; }
+.fr-move.is-dark { background: var(--bg); }
+.fr-move > * { position: absolute; top: 12px; max-width: 460px; overflow: hidden; color: var(--lighter); font-family: var(--text); font-size: 14.2px; font-weight: 500; line-height: 20px; white-space: nowrap; text-overflow: ellipsis; }
+.fr-move > :first-child, .fr-move strong { color: var(--light); font-weight: 700; }
+.fr-move .is-plus { color: var(--accent); }
+.fr-move .is-minus { color: var(--cream); }
+.fr-move > :last-child { max-width: 540px; }
+
+.fr-list { top: 1822px; height: 330px; }
+.fr-concessions { left: 208px; width: 797px; }
+.fr-interests { left: 1029px; width: 801px; background: var(--muted); }
+.fr-interests .fr-kicker { left: 36px; color: var(--light); }
+.fr-list .fr-kicker { top: 27px; }
+.fr-empty { position: absolute; left: 37px; top: 96px; margin: 0; color: var(--lighter); font-family: var(--text); font-size: 17px; font-weight: 500; }
+.fr-interests .fr-empty { color: var(--bg); }
+.fr-item { position: absolute; left: 24px; width: 749px; height: 64px; border-radius: 20px; background: var(--muted); }
+.fr-item strong { position: absolute; left: 25.6px; top: 12px; color: var(--light); font-family: var(--display); font-size: 16px; font-weight: 700; line-height: 20px; }
+.fr-item small { position: absolute; left: 26.2px; top: 35px; color: var(--card); font-family: var(--text); font-size: 14px; font-weight: 700; line-height: 18px; }
+.fr-item em { position: absolute; right: 25px; top: 19px; color: var(--card); font-family: var(--text); font-size: 14.1px; font-style: normal; font-weight: 700; }
+.fr-interest { position: absolute; left: 24px; width: 740px; height: 56px; }
+.fr-interest-chip { position: absolute; left: 0; top: 0; width: 110px; height: 56px; display: grid; place-items: center; border-radius: 16px; background: var(--cream); color: var(--card); font-family: var(--display); font-size: 14px; font-weight: 700; }
+.fr-interest strong { position: absolute; left: 128.2px; top: 8px; color: var(--light); font-family: var(--display); font-size: 16px; font-weight: 700; line-height: 20px; white-space: nowrap; }
+.fr-interest small { position: absolute; left: 127.3px; top: 34px; color: var(--card); font-family: var(--text); font-size: 14px; font-weight: 700; line-height: 18px; }
+
+.fr-alt, .fr-next { top: 2192px; height: 300px; }
+.fr-alt { left: 208px; width: 797px; }
+.fr-alt .fr-kicker { left: 43.3px; top: 26px; }
+.fr-alt strong { position: absolute; left: 36.6px; top: 76px; color: var(--light); font-family: var(--display); font-size: 28px; font-weight: 700; line-height: 34px; white-space: nowrap; }
+.fr-alt small { position: absolute; left: 38px; top: 114px; color: var(--lighter); font-family: var(--text); font-size: 18px; font-weight: 500; line-height: 24px; }
+.fr-alt p { position: absolute; left: 36.6px; top: 174px; width: 730px; margin: 0; color: var(--lighter); font-family: var(--text); font-size: 15.5px; font-weight: 500; line-height: 22px; }
+.fr-next { left: 1029px; width: 801px; box-shadow: inset 0 0 0 2px var(--accent), 0 0 16px rgba(255, 101, 71, 0.7); }
+.fr-next .fr-kicker { left: 36.6px; top: 26px; }
+.fr-next p { position: absolute; left: 37.5px; top: 81px; width: 700px; margin: 0; color: var(--light); font-family: var(--text); font-size: 19px; font-weight: 700; line-height: 26px; }
+.fr-foot { position: absolute; left: 208px; top: 2428px; margin: 0; color: var(--muted); font-family: var(--text); font-size: 14.5px; font-weight: 700; line-height: 20px; }

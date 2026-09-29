@@ -1,0 +1,46 @@
+/* ===== T01 · Проверка настроек ===== */
+.st-formats { position: absolute; inset: 0; pointer-events: none; }
+.st-format { top: 172px; width: 524.7px; height: 258px; text-align: left; pointer-events: auto; transition: box-shadow 0.15s; }
+.st-format:not(.is-on):hover { box-shadow: inset 0 0 0 2px rgba(205, 223, 248, 0.2); }
+.st-format.is-on { box-shadow: inset 0 0 0 3px var(--accent), 0 0 16px rgba(255, 101, 71, 0.75); }
+.st-format-number { position: absolute; left: 36px; top: 30.9px; }
+.st-format strong { position: absolute; left: 94.4px; top: 36px; color: var(--silver); font-family: var(--display); font-size: 28px; font-weight: 700; line-height: 36px; white-space: nowrap; }
+.st-format.is-on strong { color: var(--light); }
+.st-radio { position: absolute; left: 467.7px; top: 31px; width: 26px; height: 26px; border: 3px solid var(--muted); border-radius: 50%; }
+.st-radio.is-on { border-color: var(--accent); }
+.st-radio.is-on::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--accent); }
+.st-format small { position: absolute; left: 37px; top: 93px; width: 460px; color: var(--lighter); font-family: var(--text); font-size: 15px; font-weight: 500; line-height: 22px; }
+.st-format-meta { position: absolute; left: 37px; top: 195px; display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 16px 0 13px; border: 2px solid var(--muted); border-radius: 17px; color: var(--muted); font-family: var(--text); font-size: 14px; font-weight: 700; white-space: nowrap; }
+.st-format-meta i { width: 12px; height: 12px; border-radius: 50%; background: var(--muted); }
+.st-format.is-on .st-format-meta { color: var(--lighter); }
+.st-format.is-on .st-format-meta i { background: var(--accent); }
+
+.st-panel { left: 208px; top: 454px; width: 1073.3px; height: 569px; }
+.st-title { position: absolute; left: 38px; top: 31px; margin: 0; color: var(--light); font-family: var(--display); font-size: 32px; font-weight: 700; line-height: 40px; }
+.st-format-bar { position: absolute; left: 28px; top: 87.5px; width: 1005.8px; height: 58.7px; border: 3px solid var(--accent); border-radius: 29.4px; }
+.st-format-bar-label { position: absolute; left: 17px; top: 18px; color: var(--muted); font-family: var(--text); font-size: 14px; font-weight: 500; line-height: 18px; }
+.st-format-bar-value { position: absolute; left: 88px; top: 15.5px; color: var(--light); font-family: var(--text); font-size: 18px; font-weight: 700; line-height: 22px; white-space: nowrap; }
+.st-format-bar button { position: absolute; right: 30px; top: 9px; display: flex; align-items: center; gap: 12px; color: var(--accent); font-family: var(--display); font-size: 14.8px; font-weight: 700; }
+.st-format-bar button:hover { text-decoration: underline; }
+.st-label { position: absolute; margin: 0; color: var(--lighter); font-family: var(--text); font-size: 15.5px; font-weight: 700; line-height: 20px; white-space: nowrap; }
+
+.st-segmented { position: absolute; width: 488.7px; height: 40px; display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; padding: 3px; border-radius: 20px; background: var(--bg); }
+.st-segmented button { height: 34px; margin: 0 2.5px; border-radius: 17px; color: var(--silver); font-family: var(--display); font-size: 13.7px; font-weight: 700; white-space: nowrap; transition: background 0.15s, color 0.15s, box-shadow 0.15s; }
+.st-segmented button.is-on { background: var(--accent); color: var(--card); box-shadow: 0 0 10px #ff6547; }
+.st-segmented button:not(.is-on):hover { color: var(--light); }
+
+.st-select { position: absolute; width: 488.7px; height: 52px; border-radius: 26px; background: var(--light); cursor: pointer; }
+.st-select select { position: absolute; inset: 0; width: 100%; opacity: 0; cursor: pointer; }
+.st-select-value { position: absolute; left: 25.6px; top: 14px; color: var(--card); font-family: var(--text); font-size: 17.5px; font-weight: 500; line-height: 24px; white-space: nowrap; pointer-events: none; }
+.st-select-chevron { position: absolute; right: 31px; top: 19.5px; pointer-events: none; }
+.st-select:focus-within { box-shadow: 0 0 0 2px var(--accent); }
+.st-hint { position: absolute; top: 488px; width: 450px; margin: 0; color: var(--muted); font-family: var(--text); font-size: 14px; font-weight: 700; line-height: 19px; }
+
+.st-history { left: 1305.3px; top: 454px; width: 524.7px; height: 485px; overflow: hidden; background: var(--muted); }
+.st-history h2 { position: absolute; left: 37px; top: 30px; margin: 0; color: var(--light); font-family: var(--display); font-size: 30px; font-weight: 700; line-height: 37px; }
+.st-history p { position: absolute; left: 37px; top: 262px; width: 390px; margin: 0; color: var(--card); font-family: var(--text); font-size: 18px; font-weight: 700; line-height: 24.5px; }
+.st-history-button { position: absolute; left: 137.7px; top: 400px; width: 244px; height: 60px; border: 2px solid var(--light); border-radius: 30px; background: var(--card); box-shadow: 0 0 9px #cddff8; color: var(--light); font-family: var(--display); font-size: 24.5px; font-weight: 400; }
+.st-history-button:hover { filter: brightness(1.08); }
+
+.st-build { font-weight: 700 !important; }
+.st-error { position: absolute; left: 1305px; top: 944px; width: 524px; margin: 0; color: var(--cream); font-family: var(--text); font-size: 13px; font-weight: 700; text-align: center; }

@@ -1,9 +1,9 @@
 import { BrandLogo } from "@/components/brand-logo";
 
-const sections: Array<{ label: string; image: string; activeImage?: string; active?: boolean }> = [
+const sections: Array<{ label: string; image: string; activeImage?: string; active?: boolean; href?: string }> = [
   { label: "Обзор", image: "home" },
   { label: "Обучение", image: "learning", activeImage: "learning-active", active: true },
-  { label: "Тренировки", image: "training" },
+  { label: "Тренировки", image: "training", href: "?screen=table-settings" },
   { label: "Практика", image: "negotiations" },
   { label: "Прогресс", image: "skills" },
   { label: "Достижения", image: "history" },
@@ -16,13 +16,14 @@ export function ReportSidebar() {
         <BrandLogo />
       </a>
       <nav className="report-sidebar-nav" aria-label="Разделы">
-        {sections.map(({ label, image, activeImage, active }) => (
+        {sections.map(({ label, image, activeImage, active, href }) => (
           <button
             className={`report-sidebar-icon${active ? " is-active" : ""}`}
             type="button"
             title={label}
             aria-label={label}
             aria-current={active ? "page" : undefined}
+            onClick={href ? () => window.location.assign(href) : undefined}
             key={label}
           >
             <img src={`/icons/${active && activeImage ? activeImage : image}.svg`} alt="" draggable="false" />

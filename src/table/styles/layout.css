@@ -1,0 +1,38 @@
+/* ===== Layout A: rail + page header (settings, reports, history) ===== */
+.app-rail { position: absolute; left: 52px; top: 40px; width: 92px; height: 990px; }
+.app-rail-art { left: 0; top: 0; }
+.app-rail-logo { position: absolute; left: 7px; top: 9px; width: 75px; height: 75px; border-radius: 50%; }
+.app-rail-spot { position: absolute; left: 20px; width: 50px; height: 50px; margin-top: -65px; border-radius: 50%; }
+.app-rail-spot:hover { box-shadow: 0 0 0 3px rgba(205, 223, 248, 0.25); }
+
+.page-title {
+  position: absolute; left: 244px; top: 47px; margin: 0;
+  color: var(--accent); font-family: var(--display); font-size: 60px; font-weight: 700; line-height: 60px; white-space: nowrap;
+}
+.page-breadcrumb {
+  position: absolute; left: 244px; top: 114px; margin: 0;
+  color: var(--light); font-family: var(--display); font-size: 12px; font-weight: 400; line-height: 16px; white-space: nowrap;
+}
+.page-search {
+  position: absolute; left: 1507px; top: 67px; width: 270px; height: 41px;
+  display: flex; align-items: center; border-radius: 20.5px; background: var(--light);
+}
+.page-search img { position: absolute; left: 13px; top: 6px; }
+.page-search input {
+  position: absolute; left: 70px; top: 0; width: 190px; height: 41px; padding: 0; border: 0; outline: 0; background: transparent;
+  color: var(--card); font-family: var(--display); font-size: 15px; font-weight: 500;
+}
+.page-search input::placeholder { color: var(--card); opacity: 1; }
+.page-profile { position: absolute; left: 1787px; top: 65px; width: 45px; height: 45px; border-radius: 50%; }
+.page-profile img { display: block; }
+
+/* ===== Layout B: table header ===== */
+.tb-header { position: absolute; inset: 0 0 auto 0; height: 170px; }
+.tb-logo { left: 106px; top: 30px; }
+.tb-title { position: absolute; left: 214px; top: 47px; margin: 0; color: var(--light); font-family: var(--display); font-size: 24px; font-weight: 700; line-height: 30px; white-space: nowrap; }
+.tb-subtitle { position: absolute; left: 212px; top: 78px; margin: 0; color: var(--lighter); font-family: var(--text); font-size: 14px; font-weight: 500; line-height: 18px; white-space: nowrap; }
+
+/* ===== shared bits ===== */
+.trust-dots { position: absolute; display: flex; gap: 5.95px; }
+.trust-dots i { width: 17.9px; height: 17.9px; border: 2px solid var(--muted); border-radius: 50%; }
+.trust-dots i.is-on { border: 0; background: var(--light); }

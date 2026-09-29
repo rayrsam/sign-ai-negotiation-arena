@@ -8,6 +8,7 @@ import multer from "multer";
 import OpenAI from "openai";
 import { assessCompletion, closingRequest } from "./completion-policy";
 import { cleanDirectorReply } from "./reply-cleanup";
+import { tableRouter } from "./table/routes";
 
 type ChatRole = "user" | "assistant";
 
@@ -647,6 +648,8 @@ app.post("/api/speak", async (request, response) => {
     });
   }
 });
+
+app.use(tableRouter);
 
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
 const clientDist = path.resolve(currentDirectory, "../dist");
